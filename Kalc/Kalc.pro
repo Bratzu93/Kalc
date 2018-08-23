@@ -25,10 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+    kalc.cpp \
+    model/base.cpp \
+    model/Punto.cpp \
+    model/poliedro.cpp \
+    model/poligono.cpp \
 
 HEADERS += \
-        mainwindow.h
-
-FORMS += \
-        mainwindow.ui
+    kalc.h \
+    model/base.h \
+    model/Punto.h \
+    model/poliedro.h \
+    model/poligono.h \

@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\kalc.o
+./release\base.o
+./release\Point2d.o
+./release\Point3d.o
+./release\poliedro.o
+./release\poligono.o
+./release\kalc.o
+./release\main.o
+./release\moc_kalc.o
+);

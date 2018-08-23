@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\kalc.o
+./debug\base.o
+./debug\Point2d.o
+./debug\Point3d.o
+./debug\poliedro.o
+./debug\poligono.o
+./debug\kalc.o
+./debug\main.o
+./debug\moc_kalc.o
+);
