@@ -31,7 +31,7 @@ SOURCES += \
     model/poliedro.cpp \
     model/poligono.cpp \
     model/object.cpp \
-    model/linea.cpp
+    model/segmento.cpp
 
 HEADERS += \
     kalc.h \
@@ -40,4 +40,4 @@ HEADERS += \
     model/poliedro.h \
     model/poligono.h \
     model/object.h \
-    model/linea.h
+    model/segmento.h

@@ -2,9 +2,8 @@
 #define Poligono_H
 #include "Punto.h"
 #include "Base.h"
+#include"segmento.h"
 #include <vector>
-#include <list>
-using std::list;
 using std::vector;
 
 class Poligono :public Base
@@ -14,25 +13,24 @@ private:
 
 public:
     Poligono(const Poligono&);
-    Poligono(Base);
+    Poligono(Base &);
     Poligono& operator=(const Poligono&);
-//    ~Poligono();
     void stampa()const;
     virtual  double area()const;
     virtual  double perimetro()const;
     virtual  bool equilatero()const;
-//    void trasla(const double& _x=0,const double& _y=0);
     //vector<Poligono>* triangolazione()const;   triangolazione: dato un poligono, determinare una sua partizione in triangoli.
     //bool equiangolo()const; // Da fare
-
+    Punto Punto_piu_vicino(const Punto&)const;
+    bool interno (const Punto &p);
     bool operator<(const Poligono& p) const;
-//    bool operator>(const Poligono&) const;
-//    bool operator==(const Poligono&)const;
-//    bool operator!=(const Poligono&)const;
-//    Poligono& operator+(const Poligono&);
-//    Poligono& operator-(const Poligono&);
-//    virtual  Poligono& operator*(const double&);
-//    virtual  Poligono& operator/(const double&);
+    bool operator>(const Poligono&) const;
+    bool operator==(const Poligono&)const;
+    bool operator!=(const Poligono&)const;
+    Poligono& operator+(const Poligono&);
+    double operator-(const Poligono&)const;
+    //Poligono& operator*(const double&);
+    //Poligono& operator/(const double&);
 
 };
 

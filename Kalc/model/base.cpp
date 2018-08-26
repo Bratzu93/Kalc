@@ -9,12 +9,7 @@ Base::Base(const Base& B){
          v.push_back(B.v[i]);
 }
 
-Base::~Base(){
-//    for(auto it=v.begin();it!=v.end();++it){
-//        delete *it;
-//    }
-//    v.clear();
-}
+Base::~Base(){}
 
 Base& Base::operator=(const Base& B){
     v=B.v;
@@ -26,19 +21,23 @@ vector<Punto> Base::get_vect()const{
     return v;
 }
 
+Base& Base::append_vect(const Base& B){
+v.insert(std::end(v), std::begin(B.v), std::end(B.v));
+return *this;
+}
+
 void Base::add(const Punto& p){
     v.push_back(p);
 }
 
 
 void Base::remove(const Punto& p){
-//    for(auto cit=v.begin();cit!=v.end();++cit){
-//        if ((*cit)== p){
-//            delete (*cit);
-//            cit=v.erase(cit);
-//            cit--;
-//        }
-//    }
+    for(auto cit=v.begin();cit!=v.end();++cit){
+        if ((*cit)== p){
+            cit=v.erase(cit);
+            cit--;
+        }
+    }
 
 }
 

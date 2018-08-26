@@ -16,7 +16,7 @@ public:
     Base(const Base&);
     Base& operator=(const Base&);
     vector<Punto> get_vect()const;
-
+    Base& append_vect(const Base&);
     void add(const Punto &);
     void remove(const Punto&);
     virtual void trasla_asseX(const double&);
@@ -24,8 +24,10 @@ public:
     void trasla(const double& _x=0,const double& _y=0);
     //virtual void rotea(const double& gradi);
     //virtual void coppia_piu_vicina(); //Da Fare   stampa la coppia di punti con distanza minima tra le n combinazioni
+    //cammino minimo
     static vector<Punto*> convex_hull(Base &P);
     virtual void stampa()const;
+
 };
 
 #endif // BASE_H

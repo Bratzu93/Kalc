@@ -21,7 +21,6 @@ void stampa()const;
 double area()const;             //
 double perimetro()const;        //metodi virtuali
 bool equilatero()const;         //
-//void trasla(const double& _x=0,const double& _y=0);
 
 //    bool operator<(const Poliedro&) const;
 //    bool operator>(const Poliedro&) const;

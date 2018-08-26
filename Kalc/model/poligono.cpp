@@ -1,6 +1,6 @@
 #include "Poligono.h"
 
-Poligono::Poligono(Base B):Base(B){
+Poligono::Poligono(Base& B):Base(B){
 l = Base::convex_hull(B);
 //gestire caso con meno di 3 punti...
 }
@@ -65,5 +65,57 @@ return true;
 
 
 bool Poligono::operator<(const Poligono& p) const{
+    return (area()<p.area());
+}
+
+bool Poligono::operator>(const Poligono& p) const{
     return (area()>p.area());
+}
+
+bool Poligono::operator==(const Poligono& p)const{
+return (area()==p.area());
+}
+
+bool Poligono::operator!=(const Poligono& p)const{
+return (area()!=p.area());
+}
+
+Poligono& Poligono::operator+(const Poligono& p){
+Poligono aux(append_vect(p));
+*this=aux;
+return *this;
+}
+
+double Poligono::operator-(const Poligono& p)const{
+return area()-p.area();
+}
+
+
+bool Poligono::interno (const Punto& p)
+{
+
+   unsigned short intersections = 0;
+   for ( auto it = l.begin(); it != l.end(); it++ ) {
+      Punto p1 = **it;
+      Punto p2;
+      if ( it + 1 != l.end() )
+         p2 = **(it + 1);
+      else
+         p2 = **(l.begin());
+
+      if ( ( p.get_x() < p1.get_x() && p.get_x() < p2.get_x() ) ||
+           ( p.get_x() > p1.get_x() && p.get_x() > p2.get_x() ) )
+               continue;
+      double y_int = p1.get_y() + ( p2.get_y() - p1.get_y() ) * ( p.get_x() - p1.get_x()) / ( p2.get_x() - p1.get_x() );
+      if ( p.get_y() <= y_int  )
+         intersections++;
+   }
+   if ( intersections % 2 )
+      return true;
+   else
+      return false;
+}
+
+Punto Poligono::Punto_piu_vicino(const Punto&)const{
+//arrivato qua
 }

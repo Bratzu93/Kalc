@@ -8,7 +8,7 @@ Punto& Punto::operator=(const Punto& p){
     return *this;
 }
 
-Punto::~Punto(){std::cout<<"ho distrutto un punto"<<std::endl;}
+Punto::~Punto(){}
 
 // operazioni matematiche fra punti
 bool Punto::operator<(const Punto& p)const{
