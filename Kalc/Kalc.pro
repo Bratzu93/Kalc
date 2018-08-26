@@ -30,6 +30,8 @@ SOURCES += \
     model/Punto.cpp \
     model/poliedro.cpp \
     model/poligono.cpp \
+    model/object.cpp \
+    model/linea.cpp
 
 HEADERS += \
     kalc.h \
@@ -37,3 +39,5 @@ HEADERS += \
     model/Punto.h \
     model/poliedro.h \
     model/poligono.h \
+    model/object.h \
+    model/linea.h

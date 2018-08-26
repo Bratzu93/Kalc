@@ -1,41 +1,44 @@
 # depslib dependency file v1.0
-1535062653 source:c:\users\bratzu\desktop\kalc\kalc\model\base.cpp
+1535291145 source:c:\users\bratzu\desktop\kalc\kalc\model\base.cpp
 	"base.h"
 
-1535062818 c:\users\bratzu\desktop\kalc\kalc\model\base.h
+1535291145 c:\users\bratzu\desktop\kalc\kalc\model\base.h
 	"Punto.h"
 	<vector>
 	<algorithm>
 
-1535065427 c:\users\bratzu\desktop\kalc\kalc\model\punto.h
+1535285728 c:\users\bratzu\desktop\kalc\kalc\model\punto.h
 	<iostream>
 	<math.h>
+	"object.h"
 
-1534678705 source:c:\users\bratzu\desktop\kalc\kalc\model\poliedro.cpp
+1535280361 source:c:\users\bratzu\desktop\kalc\kalc\model\poliedro.cpp
 	"Poliedro.h"
 
-1535063323 c:\users\bratzu\desktop\kalc\kalc\model\poliedro.h
+1535280361 c:\users\bratzu\desktop\kalc\kalc\model\poliedro.h
 	"Punto.h"
 	"Base.h"
 	<vector>
 	"poligono.h"
 
-1535065894 c:\users\bratzu\desktop\kalc\kalc\model\poligono.h
+1535285065 c:\users\bratzu\desktop\kalc\kalc\model\poligono.h
 	"Punto.h"
 	"Base.h"
 	<vector>
 	<list>
 
-1535066088 source:c:\users\bratzu\desktop\kalc\kalc\model\poligono.cpp
+1535285065 source:c:\users\bratzu\desktop\kalc\kalc\model\poligono.cpp
 	"Poligono.h"
 
-1535065508 source:c:\users\bratzu\desktop\kalc\kalc\model\punto.cpp
+1535285786 source:c:\users\bratzu\desktop\kalc\kalc\model\punto.cpp
 	"Punto.h"
 
-1535067060 source:c:\users\bratzu\desktop\kalc\codeblock kalc\kalc\maincodeblock.cpp
+1535286147 source:c:\users\bratzu\desktop\kalc\codeblock kalc\kalc\maincodeblock.cpp
 	"../../Kalc/model/Punto.h"
 	"../../Kalc/model/base.h"
 	"../../Kalc/model/Poligono.h"
 	"../../Kalc/model/Poliedro.h"
 	<iostream>
+
+1535279410 c:\users\bratzu\desktop\kalc\kalc\model\object.h
 

@@ -2,18 +2,19 @@
 #define Punto_H
 #include<iostream>
 #include <math.h>
-class Punto
+#include"object.h"
+
+class Punto:public Object
 {
 private:
 double x,y;
 protected:
 static double aux_distance(const Punto&,const Punto&);
 public:
-Punto(const Punto& d); //costruttore di copia
     Punto(double _x=0, double _y=0); // costruttore standard che funge anche da costruttore ad un parametro
-    virtual ~Punto(); //distruttore
+    Punto(const Punto& d); //costruttore di copia
     Punto& operator=(const Punto&); //assegnazione
-
+    ~Punto();
     // operazioni matematiche fra punti
     bool operator<(const Punto&) const;
     bool operator>(const Punto&) const;
@@ -37,7 +38,7 @@ Punto(const Punto& d); //costruttore di copia
     void trasla_ascissa(const double& _x=0);
     void trasla_ordinata(const double& _y=0);
     void trasla(const double& _x=0,const double& _y=0);
-    static double angolo(const Punto* O, const Punto* A, const Punto* B);
+    static double angolo(const Punto &O, const Punto &A, const Punto &B);
     // Ritorna un valore positivo, se OAB fa una svolta in senso antiorario,
     // negativo per il senso orario e zero se i punti sono allineati.
 };

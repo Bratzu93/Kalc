@@ -14,11 +14,18 @@ Punto p4(0,2);
 Base b;
 b.add(p);
 b.add(p1);
-b.add(p2);
 b.add(p3);
+b.add(p2);
 b.add(p4);
-vector<const Punto*> x = Base::convex_hull(b);
+b.stampa();
+//Poligono pol(b);
+//pol.stampa();
+
+cout<<endl;
+/*
 for(auto cit=x.begin();cit!=x.end();++cit){
         (**cit).stampa();
     }
+*/
+
 }

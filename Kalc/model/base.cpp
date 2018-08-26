@@ -1,51 +1,56 @@
 #include "base.h"
 
-Base::Base(){}
+Base::Base(){
+   v = vector<Punto>() ;
+}
+
+Base::Base(const Base& B){
+    for (double i=0; i<B.v.size(); i++)
+         v.push_back(B.v[i]);
+}
 
 Base::~Base(){
-    for(auto it=v.begin();it!=v.end();++it){
-        delete *it;
-        it=v.erase(it);
-        it--;
-    }
-}
-Base& Base::operator=(const Base& B){
-    if(v==B.v)
-        return *this;
-    else
-    v=B.v;
-    return *this;
+//    for(auto it=v.begin();it!=v.end();++it){
+//        delete *it;
+//    }
+//    v.clear();
 }
 
-vector<const Punto*> Base::get_vect()const{
+Base& Base::operator=(const Base& B){
+    v=B.v;
+  return *this;
+}
+
+
+vector<Punto> Base::get_vect()const{
     return v;
 }
 
 void Base::add(const Punto& p){
-    v.push_back(&p);
+    v.push_back(p);
 }
 
 
 void Base::remove(const Punto& p){
-    for(auto cit=v.begin();cit!=v.end();++cit){
-        if ((**cit)== p){
-            delete (*cit);
-            cit=v.erase(cit);
-            cit--;
-        }
-    }
+//    for(auto cit=v.begin();cit!=v.end();++cit){
+//        if ((*cit)== p){
+//            delete (*cit);
+//            cit=v.erase(cit);
+//            cit--;
+//        }
+//    }
 
 }
 
 void Base::trasla_asseX(const double& _x){
     for(auto cit=v.begin();cit!=v.end();++cit){
-(const_cast<Punto*>(*cit))->trasla_ascissa(_x);
+(cit)->trasla_ascissa(_x);
     }
 }
 
 void Base::trasla_asseY(const double& _y){
     for(auto cit=v.begin();cit!=v.end();++cit){
-(const_cast<Punto*>(*cit))->trasla_ordinata(_y);
+(cit)->trasla_ordinata(_y);
     }
 }
 
@@ -57,30 +62,27 @@ void Base::trasla(const double& _x,const double& _y){
 
 void Base::stampa()const{
     for(auto cit=v.begin();cit!=v.end();++cit){
-        (**cit).stampa();
+        (*cit).stampa();
     }
 }
 
 
-vector<const Punto*> Base::convex_hull(const Base& P){
+vector<Punto*> Base::convex_hull(Base &P){
 
     double n = P.v.size(), k = 0;
-        if (n < 3) return std::vector<const Punto*>() ;
-        vector<const Punto*> H(2*n);
-        Base aux = const_cast<Base&>(P);
-        sort(aux.v.begin(), aux.v.end());
-
+        if (n < 3) return std::vector<Punto*>() ;
+        vector<Punto*> H(2*n);
+        sort(P.v.begin(), P.v.end());
          for (double i = 0; i < n; ++i) {
-                 while (k >= 2 && Punto::angolo(H[k-2], H[k-1], aux.v[i]) <= 0) k--;
-                 H[k++] = aux.v[i];
+                 while (k >= 2 && Punto::angolo(*(H[k-2]), *(H[k-1]), P.v[i]) <= 0) k--;
+                 H[k++] = &P.v[i];
              }
 
              // Build upper hull
-             for (size_t i = n-1, t = k+1; i > 0; --i) {
-                 while (k >= t && Punto::angolo(H[k-2], H[k-1], aux.v[i-1]) <= 0) k--;
-                 H[k++] = aux.v[i-1];
+             for (int i = n-1, t = k+1; i > 0; --i) {
+                 while (k >= t && Punto::angolo(*(H[k-2]), *(H[k-1]), P.v[i-1]) <= 0) k--;
+                 H[k++] = &P.v[i-1];
              }
-
              H.resize(k-1);
              return H;
 }

@@ -6,6 +6,7 @@
 #include <QLineEdit>
 #include "kalc.h"
 #include"model/base.h"
+#include"model/Punto.h"
 
 Kalc::Kalc(QWidget *parent) :QWidget(parent)
 {

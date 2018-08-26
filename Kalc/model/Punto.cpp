@@ -2,13 +2,13 @@
 
 Punto::Punto(double _x, double _y):x(_x),y(_y){}
 Punto::Punto(const Punto &p):x(p.x),y(p.y){}
-Punto::~Punto(){}
 Punto& Punto::operator=(const Punto& p){
     x=p.x;
     y=p.y;
     return *this;
 }
 
+Punto::~Punto(){std::cout<<"ho distrutto un punto"<<std::endl;}
 
 // operazioni matematiche fra punti
 bool Punto::operator<(const Punto& p)const{
@@ -64,8 +64,8 @@ double Punto::get_y()const{
 double Punto::aux_distance(const Punto &p1, const Punto &p2){
     return pow(p2.x-p1.x,2)+pow(p2.y-p1.y,2);
 }
-double Punto::angolo(const Punto* O, const Punto* A, const Punto* B){
-        return (A->x - O->x) * (B->y - O->y) - (A->y - O->y) * (B->x - O->x);
+double Punto::angolo(const Punto& O, const Punto& A, const Punto& B){
+        return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
 }
 double Punto::distanza(const Punto& first_point, const Punto& second_point){
 return sqrt(aux_distance(first_point,second_point));

@@ -10,17 +10,18 @@ using std::vector;
 class Poligono :public Base
 {
 private:
-    vector<const Punto*> l;
+    vector<Punto*> l;
 
 public:
     Poligono(const Poligono&);
-    Poligono(const Base&);
+    Poligono(Base);
     Poligono& operator=(const Poligono&);
-    ~Poligono();
+//    ~Poligono();
     void stampa()const;
     virtual  double area()const;
     virtual  double perimetro()const;
     virtual  bool equilatero()const;
+//    void trasla(const double& _x=0,const double& _y=0);
     //vector<Poligono>* triangolazione()const;   triangolazione: dato un poligono, determinare una sua partizione in triangoli.
     //bool equiangolo()const; // Da fare
 

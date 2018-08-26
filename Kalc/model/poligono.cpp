@@ -1,6 +1,6 @@
 #include "Poligono.h"
 
-Poligono::Poligono(const Base & B):Base(B){
+Poligono::Poligono(Base B):Base(B){
 l = Base::convex_hull(B);
 //gestire caso con meno di 3 punti...
 }
@@ -15,13 +15,17 @@ Poligono& Poligono::operator=(const Poligono& p){
     return *this;
 }
 
-Poligono::~Poligono(){
-    for(auto it=l.begin();it!=l.end();++it){
-        delete *it;
-        it=l.erase(it);
-        it--;
-    }
-}
+//Poligono::~Poligono(){
+//    for(auto it=l.begin();it!=l.end();++it){
+//        delete *it;
+//        it=l.erase(it);
+//        it--;
+//    }
+//}
+
+//void Poligono::trasla(const double &_x, const double &_y){
+//    // da fare
+//}
 
 void Poligono::stampa()const{
     for(auto cit=l.begin();cit!=l.end();++cit){
