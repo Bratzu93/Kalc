@@ -31,7 +31,12 @@ SOURCES += \
     model/poliedro.cpp \
     model/poligono.cpp \
     model/object.cpp \
-    model/segmento.cpp
+    model/segmento.cpp \
+    controller.cpp \
+    leftarea.cpp \
+    creazione.cpp \
+    rightarea.cpp \
+    newpoint.cpp
 
 HEADERS += \
     kalc.h \
@@ -40,4 +45,9 @@ HEADERS += \
     model/poliedro.h \
     model/poligono.h \
     model/object.h \
-    model/segmento.h
+    model/segmento.h \
+    controller.h \
+    leftarea.h \
+    creazione.h \
+    rightarea.h \
+    newpoint.h

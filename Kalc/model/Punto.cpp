@@ -61,14 +61,12 @@ double Punto::get_y()const{
 }
 
 //altre funzioni
-double Punto::aux_distance(const Punto &p1, const Punto &p2){
-    return pow(p2.x-p1.x,2)+pow(p2.y-p1.y,2);
-}
 double Punto::angolo(const Punto& O, const Punto& A, const Punto& B){
         return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
 }
+
 double Punto::distanza(const Punto& first_point, const Punto& second_point){
-return sqrt(aux_distance(first_point,second_point));
+return sqrt(pow(second_point.x-first_point.x,2)+pow(second_point.y-first_point.y,2));
 }
 
 void Punto::trasla_ascissa(const double &_x){

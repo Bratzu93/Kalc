@@ -8,8 +8,7 @@ class Punto:public Object
 {
 private:
 double x,y;
-protected:
-static double aux_distance(const Punto&,const Punto&);
+
 public:
     Punto(double _x=0, double _y=0); // costruttore standard che funge anche da costruttore ad un parametro
     Punto(const Punto& d); //costruttore di copia

@@ -1,22 +1,21 @@
-#include <QApplication>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QPushButton>
-#include <QLabel>
-#include <QLineEdit>
 #include "kalc.h"
-#include"model/base.h"
-#include"model/Punto.h"
+#include <QLineEdit>
+#include <QGridLayout>
 
-Kalc::Kalc(QWidget *parent) :QWidget(parent)
-{
-QVBoxLayout* operandi = new QVBoxLayout();
+Kalc::Kalc(QWidget *parent) :QWidget(parent){
+controller = new Controller();
+left = new LeftArea(controller);
+right = new RightArea;
+grid = new QHBoxLayout;
 
-QLabel* primo = new QLabel(tr("primo operando"),this);
-QLineEdit* p1 = new QLineEdit("",this);
-QPushButton* add_p = new QPushButton("aggiungi oggetto",this);
-operandi->addWidget(primo);
-operandi->addWidget(p1);
-operandi->addWidget(add_p);
-setLayout(operandi);
+grid->addWidget(left);
+grid->addWidget(right);
+setLayout(grid);
+resize(900,500);
+
+connect(left, SIGNAL(itemAdded()), this, SLOT(addItem()));
+connect(right, SIGNAL(itemAdded()), this, SLOT(addItem()));
+
 }
+
+

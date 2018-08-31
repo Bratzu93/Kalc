@@ -7,19 +7,22 @@
 using namespace std;
 int main()
 {
-Punto p(0,6);
-Punto p1(5,6);
+Punto p(0,0);
+Punto p1(0,2);
 Punto p2(2,0);
-Punto p3(0,0);
-Punto p4(0,2);
-Punto p5(2,2);
+Punto p3(2,2);
+Punto p4(1,1);
+Punto p5(3,3);
 Base b;
+b.add(p);
 b.add(p1);
-b.add(p3);
 b.add(p2);
-b.add(p4);
+b.add(p3);
 b.stampa();
 cout<<endl;
-Segmento x(p,p1);
-cout<<x.Punto_piu_vicino(p5);
+Poligono pol(b);
+pol.stampa();
+cout<<endl;
+Segmento s(p,p1);
+cout<<pol.Punto_piu_vicino(p4);
 }

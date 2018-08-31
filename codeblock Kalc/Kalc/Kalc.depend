@@ -7,7 +7,7 @@
 	<vector>
 	<algorithm>
 
-1535294785 c:\users\bratzu\desktop\kalc\kalc\model\punto.h
+1535412853 c:\users\bratzu\desktop\kalc\kalc\model\punto.h
 	<iostream>
 	<math.h>
 	"object.h"
@@ -23,13 +23,13 @@
 	<vector>
 	"poligono.h"
 
-1535302301 c:\users\bratzu\desktop\kalc\kalc\model\poligono.h
+1535412509 c:\users\bratzu\desktop\kalc\kalc\model\poligono.h
 	"Punto.h"
 	"Base.h"
+	"segmento.h"
 	<vector>
-	<list>
 
-1535302302 source:c:\users\bratzu\desktop\kalc\kalc\model\poligono.cpp
+1535412597 source:c:\users\bratzu\desktop\kalc\kalc\model\poligono.cpp
 	"Poligono.h"
 
 1535294839 source:c:\users\bratzu\desktop\kalc\kalc\model\punto.cpp
@@ -41,7 +41,7 @@
 1535308482 c:\users\bratzu\desktop\kalc\kalc\model\segmento.h
 	"Punto.h"
 
-1535320202 source:c:\users\bratzu\desktop\kalc\codeblock kalc\kalc\maincodeblock.cpp
+1535412621 source:c:\users\bratzu\desktop\kalc\codeblock kalc\kalc\maincodeblock.cpp
 	"../../Kalc/model/Punto.h"
 	"../../Kalc/model/base.h"
 	"../../Kalc/model/Poligono.h"

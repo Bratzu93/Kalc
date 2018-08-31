@@ -91,8 +91,7 @@ return area()-p.area();
 }
 
 
-bool Poligono::interno (const Punto& p)
-{
+bool Poligono::interno (const Punto& p) const{
 
    unsigned short intersections = 0;
    for ( auto it = l.begin(); it != l.end(); it++ ) {
@@ -116,6 +115,23 @@ bool Poligono::interno (const Punto& p)
       return false;
 }
 
-Punto Poligono::Punto_piu_vicino(const Punto&)const{
-//arrivato qua
+Punto Poligono::Punto_piu_vicino(const Punto& p)const{
+    if(interno(p))return p;
+    Punto x;
+    double k=1;
+    double distanza_minima;
+    while(k<l.size()){
+    Segmento s(*l[k-1],*l[k]);
+    if(k==1){
+        x=s.Punto_piu_vicino(p);
+        distanza_minima = Punto::distanza(p,s.Punto_piu_vicino(p));
+    }
+    if(Punto::distanza(p,s.Punto_piu_vicino(p))<= distanza_minima)
+    x=s.Punto_piu_vicino(p);
+    ++k;
+        }
+    Segmento s(*l[0],*l[l.size()]);
+    if(Punto::distanza(p,s.Punto_piu_vicino(p))<= distanza_minima)
+    x=s.Punto_piu_vicino(p);
+return x;
 }
