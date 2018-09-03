@@ -12,6 +12,8 @@ public:
     Punto Punto_medio()const;
     Punto Punto_piu_vicino(const Punto &p)const;
     void trasla(const double& _x,const double& _y);
+    Punto get_firstPoint()const;
+    Punto get_secondPoint()const;
 
 };
 

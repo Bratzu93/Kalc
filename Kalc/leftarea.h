@@ -14,6 +14,7 @@
 #include <QLineEdit>
 #include "creazione.h"
 #include "controller.h"
+#include "dettagli.h"
 
 class LeftArea : public QWidget
 {
@@ -24,9 +25,9 @@ private:
 
     Controller* control;
     QGroupBox* group;
-    QListWidget* l;
+    QListWidget* list;
     QTabWidget* tab;
-    QGroupBox* dettagli;
+    Dettagli* dettagli;
     Creazione* _creazione;
     QVBoxLayout* struttura;
     QVBoxLayout* _struttura;
@@ -37,7 +38,7 @@ signals:
 
 public slots:
     void itemAdded();
-
+    void selected();
 };
 
 #endif // LEFTAREA_H

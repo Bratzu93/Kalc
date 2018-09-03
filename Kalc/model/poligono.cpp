@@ -15,6 +15,20 @@ Poligono& Poligono::operator=(const Poligono& p){
     return *this;
 }
 
+vector<Punto*> Poligono::get_vect()const{
+    return l;
+}
+std::string Poligono::OutPunti()const{
+std::ostringstream strs;
+    for(auto it=l.begin(); it!=l.end();++it)
+    strs << **it;
+std::string str = strs.str();
+return str;
+}
+
+Punto Poligono::PointfromPoligon(int i)const{
+return *l[i];
+}
 //Poligono::~Poligono(){
 //    for(auto it=l.begin();it!=l.end();++it){
 //        delete *it;

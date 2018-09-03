@@ -19,6 +19,7 @@ public:
     Base& append_vect(const Base&);
     void add(const Punto &);
     void remove(const Punto&);
+    void clear();
     virtual void trasla_asseX(const double&);
     virtual void trasla_asseY(const double&);
     void trasla(const double& _x=0,const double& _y=0);

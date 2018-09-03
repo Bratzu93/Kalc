@@ -36,7 +36,12 @@ SOURCES += \
     leftarea.cpp \
     creazione.cpp \
     rightarea.cpp \
-    newpoint.cpp
+    newpoint.cpp \
+    newsegmento.cpp \
+    newpoligono.cpp \
+    newpoliedro.cpp \
+    dettagli.cpp \
+    grafico.cpp
 
 HEADERS += \
     kalc.h \
@@ -50,4 +55,9 @@ HEADERS += \
     leftarea.h \
     creazione.h \
     rightarea.h \
-    newpoint.h
+    newpoint.h \
+    newsegmento.h \
+    newpoligono.h \
+    newpoliedro.h \
+    dettagli.h \
+    grafico.h

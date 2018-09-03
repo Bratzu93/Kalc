@@ -8,6 +8,10 @@
 #include <QLabel>
 #include <QLineEdit>
 #include "controller.h"
+#include "newpoint.h"
+#include "newsegmento.h"
+#include "newpoligono.h"
+
 class Creazione : public QWidget
 {
     Q_OBJECT
@@ -15,17 +19,16 @@ class Creazione : public QWidget
 public:
     explicit Creazione(Controller* controller,QWidget *parent = nullptr);
 public slots:
-    void save_item();
+
 signals:
-    void _salva();
+    void AddItem();
 private:
-    QGridLayout* creazione;
-    QPushButton* salva;
-    QLabel* xLabel;
-    QLabel* yLabel;
-    QLineEdit* xLineEdit;
-    QLineEdit* yLineEdit;
+    QHBoxLayout* creazione;
     Controller* control;
+    newPoint* newpoint;
+    newSegmento* newsegm;
+    newPoligono* new_poligono;
+
 };
 
 #endif // CREAZIONE_H

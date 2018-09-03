@@ -44,3 +44,12 @@ Punto Segmento::Punto_piu_vicino(const Punto& p)const{
     double y= m1*x+q;
     return Punto(x,y);
 }
+
+Punto Segmento::get_firstPoint()const{
+    return p1;
+}
+
+
+Punto Segmento::get_secondPoint()const{
+    return p2;
+}

@@ -13,16 +13,19 @@ Punto p2(2,0);
 Punto p3(2,2);
 Punto p4(1,1);
 Punto p5(3,3);
+Punto p6(8,3);
 Base b;
 b.add(p);
 b.add(p1);
 b.add(p2);
 b.add(p3);
-b.stampa();
+Base b2;
+b2.add(p);
+b2.add(p3);
+b2.add(p6);
 cout<<endl;
+
 Poligono pol(b);
 pol.stampa();
-cout<<endl;
-Segmento s(p,p1);
-cout<<pol.Punto_piu_vicino(p4);
+cout<<pol.area();
 }

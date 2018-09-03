@@ -13,9 +13,6 @@ grid->addWidget(right);
 setLayout(grid);
 resize(900,500);
 
-connect(left, SIGNAL(itemAdded()), this, SLOT(addItem()));
-connect(right, SIGNAL(itemAdded()), this, SLOT(addItem()));
-
 }
 
 

@@ -4,6 +4,8 @@
 #include "Base.h"
 #include"segmento.h"
 #include <vector>
+#include <sstream>
+
 using std::vector;
 
 class Poligono :public Base
@@ -16,6 +18,9 @@ public:
     Poligono(Base &);
     Poligono& operator=(const Poligono&);
     void stampa()const;
+    std::string OutPunti()const;
+    Punto PointfromPoligon(int i)const;
+    vector<Punto*> get_vect()const;
     virtual  double area()const;
     virtual  double perimetro()const;
     virtual  bool equilatero()const;

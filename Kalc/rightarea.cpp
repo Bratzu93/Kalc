@@ -11,5 +11,5 @@ RightArea::RightArea(QWidget *parent) : QWidget(parent)
     group->addTab(new QWidget(),"Operazioni binarie");
     struttura->addWidget(group);
     setLayout(struttura);
-
+setMinimumWidth(500);
 }

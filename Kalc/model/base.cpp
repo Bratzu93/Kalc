@@ -64,7 +64,9 @@ void Base::stampa()const{
         (*cit).stampa();
     }
 }
-
+void Base::clear(){
+    v.clear();
+}
 
 vector<Punto*> Base::convex_hull(Base &P){
 

@@ -10,7 +10,7 @@ private:
 double x,y;
 
 public:
-    Punto(double _x=0, double _y=0); // costruttore standard che funge anche da costruttore ad un parametro
+    Punto(const double& _x=0,const double& _y=0); // costruttore standard che funge anche da costruttore ad un parametro
     Punto(const Punto& d); //costruttore di copia
     Punto& operator=(const Punto&); //assegnazione
     ~Punto();
