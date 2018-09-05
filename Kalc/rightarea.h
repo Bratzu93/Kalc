@@ -6,23 +6,47 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QMessageBox>
-#include <QTabWidget>
-
+#include <QGroupBox>
+#include "unaria.h"
 
 class RightArea : public QWidget
 {
     Q_OBJECT
 private:
-    QVBoxLayout* struttura;
-    QTabWidget* group;
-    QLineEdit* op;
-    QPushButton* uguale;
+    Controller* control;
+    QGroupBox* group;
+    QGridLayout* struttura;
+    QPushButton* addFirst;
+    QLineEdit* first;
+    QLineEdit* second;
     QLineEdit* risultato;
-    QPushButton* saveButton;
+    QPushButton* addSecond;
+    QPushButton* Save;
+    QPushButton* Clear;
+    QPushButton* somma;
+    QPushButton* diff;
+    QPushButton* molt;
+    QPushButton* div;
+    QPushButton* trasla;
+    QPushButton* puntoPiuVicino;
+    QPushButton* interno;
+    QPushButton* asd;
+
+
+    int indice;
 
 public:
-    explicit RightArea(QWidget *parent = nullptr);
+    RightArea(Controller* c , QWidget *parent = nullptr);
+
+public slots:
+    void selected(int i);
+    void addFirstPress();
+    void addSecondPress();
+    void ClearPress();
+    void savePress();
+    void sommaPress();
+ signals:
+    void AddItem();
 
 };
 

@@ -2,8 +2,8 @@
 
 Poligono::Poligono(Base& B):Base(B){
 l = Base::convex_hull(B);
-//gestire caso con meno di 3 punti...
 }
+Poligono::Poligono(){}
 
 Poligono::Poligono(const Poligono& p):Base(p),l(p.l){}
 
@@ -29,17 +29,7 @@ return str;
 Punto Poligono::PointfromPoligon(int i)const{
 return *l[i];
 }
-//Poligono::~Poligono(){
-//    for(auto it=l.begin();it!=l.end();++it){
-//        delete *it;
-//        it=l.erase(it);
-//        it--;
-//    }
-//}
-
-//void Poligono::trasla(const double &_x, const double &_y){
-//    // da fare
-//}
+Poligono::~Poligono(){}
 
 void Poligono::stampa()const{
     for(auto cit=l.begin();cit!=l.end();++cit){
@@ -50,11 +40,10 @@ void Poligono::stampa()const{
 double Poligono::area()const{
     double area=0;
     double n = l.size();
-    for(int k=0;k<n-1;k++){
+    for(int k=0;k<n;k++){
         area += ((*l[k]).get_x() * (*l[k+1]).get_y()) - ((*l[k]).get_y() * (*l[k+1]).get_x());
     }
     return area/2;
-// valutare se utilizzare friend per avere x e y
 }
 
 double Poligono::perimetro()const{
@@ -94,10 +83,9 @@ bool Poligono::operator!=(const Poligono& p)const{
 return (area()!=p.area());
 }
 
-Poligono& Poligono::operator+(const Poligono& p){
-Poligono aux(append_vect(p));
-*this=aux;
-return *this;
+Poligono operator+(const Poligono& pol1, const Poligono& pol2){
+Poligono aux((const_cast<Poligono&>(pol1)).append_vect(pol2));
+return aux;
 }
 
 double Poligono::operator-(const Poligono& p)const{

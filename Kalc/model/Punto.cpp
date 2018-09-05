@@ -25,24 +25,24 @@ bool Punto::operator!=(const Punto& p)const{
 }
 
 
-Punto& Punto::operator+(const Punto& p){
-    x=x+p.x;
-    y=y+p.y;
-    return *this;
-}
+//Punto& Punto::operator+(const Punto& p){
+//    x=x+p.x;
+//    y=y+p.y;
+//    return *this;
+//}
 Punto& Punto::operator-(const Punto& p){
     x=x-p.x;
     y=y-p.y;
     return *this;
 }
-Punto& Punto::operator*(const double& p){
-    x=x*p;
-    y=y*p;
+Punto& Punto::operator*(const Punto& p){
+    x=x*p.x;
+    y=y*p.y;
     return *this;
 }
-Punto& Punto::operator/(const double& p){
-    x=x/p;
-    y=y/p;
+Punto& Punto::operator/(const Punto& p){
+    x=x/p.x;
+    y=y/p.y;
     return *this;
 }
 
@@ -87,4 +87,9 @@ void Punto::stampa() const{
 std::ostream& operator<<(std::ostream& os, const Punto& p){
     os<<"("<<p.x<<","<<p.y<<")";
     return os;
+}
+
+Punto operator +(const Punto& p1, const Punto& p2){
+    Punto temp(p1.x+p2.x,p1.y+p2.y);
+     return temp;
 }

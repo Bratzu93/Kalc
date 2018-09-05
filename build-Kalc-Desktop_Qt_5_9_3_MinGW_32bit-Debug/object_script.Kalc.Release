@@ -3,9 +3,7 @@ INPUT(
 ./release\kalc.o
 ./release\base.o
 ./release\Punto.o
-./release\poliedro.o
 ./release\poligono.o
-./release\object.o
 ./release\segmento.o
 ./release\controller.o
 ./release\leftarea.o
@@ -14,9 +12,8 @@ INPUT(
 ./release\newpoint.o
 ./release\newsegmento.o
 ./release\newpoligono.o
-./release\newpoliedro.o
 ./release\dettagli.o
-./release\grafico.o
+./release\unaria.o
 ./release\moc_kalc.o
 ./release\moc_leftarea.o
 ./release\moc_creazione.o
@@ -24,7 +21,6 @@ INPUT(
 ./release\moc_newpoint.o
 ./release\moc_newsegmento.o
 ./release\moc_newpoligono.o
-./release\moc_newpoliedro.o
 ./release\moc_dettagli.o
-./release\moc_grafico.o
+./release\moc_unaria.o
 );

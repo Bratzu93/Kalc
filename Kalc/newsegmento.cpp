@@ -28,6 +28,7 @@ newSegmento::newSegmento(Controller *c, QWidget *parent):QWidget(parent),control
     yLineEditSecond = new QLineEdit();
 
     QPushButton* salva = new QPushButton(tr("salva"));
+    salva->setAutoDefault(true);
 
     formXfirst->addWidget(xFirst);
     formXfirst->addWidget(xLineEditFirst);
@@ -48,6 +49,7 @@ newSegmento::newSegmento(Controller *c, QWidget *parent):QWidget(parent),control
     form->addLayout(verticalFormFirst);
     form->addLayout(verticalFormSecond);
     verticalFinal->addLayout(form);
+    verticalFinal->addSpacing(50);
     verticalFinal->addWidget(salva);
 
     Group->setLayout(verticalFinal);

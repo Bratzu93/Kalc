@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_RightArea_t {
-    QByteArrayData data[1];
-    char stringdata0[10];
+    QByteArrayData data[10];
+    char stringdata0[91];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -31,10 +31,21 @@ struct qt_meta_stringdata_RightArea_t {
     )
 static const qt_meta_stringdata_RightArea_t qt_meta_stringdata_RightArea = {
     {
-QT_MOC_LITERAL(0, 0, 9) // "RightArea"
+QT_MOC_LITERAL(0, 0, 9), // "RightArea"
+QT_MOC_LITERAL(1, 10, 7), // "AddItem"
+QT_MOC_LITERAL(2, 18, 0), // ""
+QT_MOC_LITERAL(3, 19, 8), // "selected"
+QT_MOC_LITERAL(4, 28, 1), // "i"
+QT_MOC_LITERAL(5, 30, 13), // "addFirstPress"
+QT_MOC_LITERAL(6, 44, 14), // "addSecondPress"
+QT_MOC_LITERAL(7, 59, 10), // "ClearPress"
+QT_MOC_LITERAL(8, 70, 9), // "savePress"
+QT_MOC_LITERAL(9, 80, 10) // "sommaPress"
 
     },
-    "RightArea"
+    "RightArea\0AddItem\0\0selected\0i\0"
+    "addFirstPress\0addSecondPress\0ClearPress\0"
+    "savePress\0sommaPress"
 };
 #undef QT_MOC_LITERAL
 
@@ -44,22 +55,63 @@ static const uint qt_meta_data_RightArea[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    0,   49,    2, 0x06 /* Public */,
+
+ // slots: name, argc, parameters, tag, flags
+       3,    1,   50,    2, 0x0a /* Public */,
+       5,    0,   53,    2, 0x0a /* Public */,
+       6,    0,   54,    2, 0x0a /* Public */,
+       7,    0,   55,    2, 0x0a /* Public */,
+       8,    0,   56,    2, 0x0a /* Public */,
+       9,    0,   57,    2, 0x0a /* Public */,
+
+ // signals: parameters
+    QMetaType::Void,
+
+ // slots: parameters
+    QMetaType::Void, QMetaType::Int,    4,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
 
 void RightArea::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
-    Q_UNUSED(_a);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        RightArea *_t = static_cast<RightArea *>(_o);
+        Q_UNUSED(_t)
+        switch (_id) {
+        case 0: _t->AddItem(); break;
+        case 1: _t->selected((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->addFirstPress(); break;
+        case 3: _t->addSecondPress(); break;
+        case 4: _t->ClearPress(); break;
+        case 5: _t->savePress(); break;
+        case 6: _t->sommaPress(); break;
+        default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            typedef void (RightArea::*_t)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&RightArea::AddItem)) {
+                *result = 0;
+                return;
+            }
+        }
+    }
 }
 
 const QMetaObject RightArea::staticMetaObject = {
@@ -84,7 +136,24 @@ void *RightArea::qt_metacast(const char *_clname)
 int RightArea::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 7)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 7;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 7)
+            *reinterpret_cast<int*>(_a[0]) = -1;
+        _id -= 7;
+    }
     return _id;
+}
+
+// SIGNAL 0
+void RightArea::AddItem()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

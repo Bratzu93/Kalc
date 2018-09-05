@@ -14,7 +14,6 @@
 #include "newpoint.h"
 #include "newsegmento.h"
 #include "newpoligono.h"
-#include "grafico.h"
 #include <QPainter>
 #include <QLabel>
 #include <QPicture>
@@ -35,7 +34,8 @@ private:
     QLineEdit* y;
     QLineEdit* xbis;
     QLineEdit* ybis;
-
+    QLabel* prim;
+    QLabel* sec;
     QLabel* l;
     QPicture* pi;
     QPainter* painter;

@@ -19,10 +19,10 @@ public:
     bool operator>(const Punto&) const;
     bool operator==(const Punto&)const;
     bool operator!=(const Punto&)const;
-    Punto& operator+(const Punto&);
+//    Punto& operator+(const Punto&);
     Punto& operator-(const Punto&);
-    virtual  Punto& operator*(const double&);
-    virtual  Punto& operator/(const double&);
+    Punto& operator*(const Punto&);
+    Punto& operator/(const Punto&);
 
     //metodi setter e getter
     void set_x(const double& _x);
@@ -32,7 +32,6 @@ public:
 
     // altre funzioni
     virtual void stampa()const;
-    friend std::ostream& operator<<(std::ostream& os, const Punto& p);
     static double distanza(const Punto& first_point, const Punto& second_point);
     void trasla_ascissa(const double& _x=0);
     void trasla_ordinata(const double& _y=0);
@@ -40,6 +39,8 @@ public:
     static double angolo(const Punto &O, const Punto &A, const Punto &B);
     // Ritorna un valore positivo, se OAB fa una svolta in senso antiorario,
     // negativo per il senso orario e zero se i punti sono allineati.
+    friend std::ostream& operator<<(std::ostream& os, const Punto& p);
+    friend Punto operator +(const Punto&,const Punto&);
 };
 
 #endif // Punto_H

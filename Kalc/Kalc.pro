@@ -28,9 +28,7 @@ SOURCES += \
     kalc.cpp \
     model/base.cpp \
     model/Punto.cpp \
-    model/poliedro.cpp \
     model/poligono.cpp \
-    model/object.cpp \
     model/segmento.cpp \
     controller.cpp \
     leftarea.cpp \
@@ -39,15 +37,13 @@ SOURCES += \
     newpoint.cpp \
     newsegmento.cpp \
     newpoligono.cpp \
-    newpoliedro.cpp \
     dettagli.cpp \
-    grafico.cpp
+    unaria.cpp
 
 HEADERS += \
     kalc.h \
     model/base.h \
     model/Punto.h \
-    model/poliedro.h \
     model/poligono.h \
     model/object.h \
     model/segmento.h \
@@ -58,6 +54,5 @@ HEADERS += \
     newpoint.h \
     newsegmento.h \
     newpoligono.h \
-    newpoliedro.h \
     dettagli.h \
-    grafico.h
+    unaria.h

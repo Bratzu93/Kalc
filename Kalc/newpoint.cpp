@@ -14,6 +14,7 @@ newPoint::newPoint(Controller *c, QWidget *parent):QWidget(parent),control(c)
     xLineEditfirst = new QLineEdit();
     yLineEditfirst = new QLineEdit();
     QPushButton* salva = new QPushButton(tr("salva"));
+    salva->setAutoDefault(true);
 
     formX->addWidget(xFirst);
     formX->addWidget(xLineEditfirst);

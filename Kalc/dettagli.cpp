@@ -16,7 +16,8 @@ Dettagli::Dettagli(Controller *controller, QWidget *parent):QWidget(parent),cont
     _ybis= new QLabel;
     xbis = new QLineEdit;
     ybis = new QLineEdit;
-
+    prim = new QLabel;
+    sec = new QLabel;
 
     setLayout(form);
 
@@ -57,6 +58,8 @@ void Dettagli::DettagliPunto(const Punto& point){
         _xbis->setVisible(false);
         ybis->setVisible(false);
         _ybis->setVisible(false);
+        prim->setVisible(false);
+        sec->setVisible(false);
         l = new QLabel;
         pi = new QPicture;
         painter = new QPainter(pi);
@@ -89,15 +92,17 @@ void Dettagli::DettagliSegmento(const Segmento& s ){
 
 
     delete _x; delete _y; delete x; delete y;
-    delete _xbis; delete _ybis; delete xbis; delete ybis;
+    delete _xbis; delete _ybis; delete xbis; delete ybis; delete prim; delete sec;
     delete painter; delete pi; delete l;
 
+    prim = new QLabel(tr("primo punto"));
     _x= new QLabel(tr("x: "));
     _y= new QLabel(tr("y: "));
     x = new QLineEdit;
     y = new QLineEdit;
-    _xbis= new QLabel(tr("sec x :"));
-    _ybis= new QLabel(tr("sec y :"));
+    sec = new QLabel(tr("secondo punto"));
+    _xbis= new QLabel(tr("x :"));
+    _ybis= new QLabel(tr("y :"));
     xbis = new QLineEdit;
     ybis = new QLineEdit;
 
@@ -132,6 +137,7 @@ void Dettagli::DettagliSegmento(const Segmento& s ){
     QHBoxLayout* secx = new QHBoxLayout;
     QHBoxLayout* secy = new QHBoxLayout;
 
+
     linex->addWidget(_x);
     linex->addWidget(x);
     liney->addWidget(_y);
@@ -142,8 +148,10 @@ void Dettagli::DettagliSegmento(const Segmento& s ){
     secy->addWidget(_ybis);
     secy->addWidget(ybis);
 
+    det->addWidget(prim);
     det->addLayout(linex);
     det->addLayout(liney);
+    det->addWidget(sec);
     det->addLayout(secx);
     det->addLayout(secy);
 
@@ -176,6 +184,8 @@ void Dettagli::DettagliPoligono(const Poligono &pol){
     y->setEnabled(false);
     xbis->setEnabled(false);
     ybis->setEnabled(false);
+    prim->setVisible(false);
+    sec->setVisible(false);
 
     l = new QLabel;
     pi = new QPicture;

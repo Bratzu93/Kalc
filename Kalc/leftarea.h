@@ -35,7 +35,7 @@ public:
     LeftArea(Controller* c , QWidget *parent = nullptr);
 
 signals:
-
+    void _selected(int);
 public slots:
     void itemAdded();
     void selected();

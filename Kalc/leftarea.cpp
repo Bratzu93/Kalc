@@ -5,16 +5,16 @@ LeftArea::LeftArea(Controller *c, QWidget *parent):QWidget(parent),control(c){
    struttura = new QVBoxLayout;
    _struttura = new QVBoxLayout;
 
-    group = new QGroupBox(tr("Oggetti"),this);
-    list = new QListWidget(group);
+    group = new QGroupBox(tr("Oggetti"));
+    list = new QListWidget;
     dettagli = new Dettagli(control);
-    tab = new QTabWidget(group);
+    tab = new QTabWidget;
     _creazione = new Creazione(control);
     tab->addTab(_creazione,"Crea");
     tab->addTab(dettagli,"Dettagli");
 
-    struttura->addWidget(list,2);
-    struttura->addWidget(tab,1);
+    struttura->addWidget(list,1);
+    struttura->addWidget(tab,2);
     group->setLayout(struttura);
     _struttura->addWidget(group);
     setLayout(_struttura);
@@ -30,12 +30,14 @@ delete list;
     connect(list, SIGNAL(itemSelectionChanged()), this,SLOT(selected()));
     connect(list, SIGNAL(itemClicked(QListWidgetItem*)), this,SLOT(selected()));
     connect(list, SIGNAL(currentRowChanged(int)), dettagli,SLOT(AggiornaDettagli(int)));
+    connect(list, SIGNAL(currentRowChanged(int)), this,SIGNAL(_selected(int)));
 for(int i=0;i<control->getVectorSize();++i){
     list->addItem( QString::fromStdString(control->getTypeElem(i)) + " " + QString::number(i) );
+}
 struttura->removeWidget(tab);
-struttura->addWidget(list,2);
-struttura->addWidget(tab,1);
-    }
+struttura->addWidget(list,1);
+struttura->addWidget(tab,2);
+list->setFocus();
 }
 
 void LeftArea::selected(){

@@ -3,9 +3,7 @@ INPUT(
 ./debug\kalc.o
 ./debug\base.o
 ./debug\Punto.o
-./debug\poliedro.o
 ./debug\poligono.o
-./debug\object.o
 ./debug\segmento.o
 ./debug\controller.o
 ./debug\leftarea.o
@@ -14,9 +12,8 @@ INPUT(
 ./debug\newpoint.o
 ./debug\newsegmento.o
 ./debug\newpoligono.o
-./debug\newpoliedro.o
 ./debug\dettagli.o
-./debug\grafico.o
+./debug\unaria.o
 ./debug\moc_kalc.o
 ./debug\moc_leftarea.o
 ./debug\moc_creazione.o
@@ -24,7 +21,6 @@ INPUT(
 ./debug\moc_newpoint.o
 ./debug\moc_newsegmento.o
 ./debug\moc_newpoligono.o
-./debug\moc_newpoliedro.o
 ./debug\moc_dettagli.o
-./debug\moc_grafico.o
+./debug\moc_unaria.o
 );

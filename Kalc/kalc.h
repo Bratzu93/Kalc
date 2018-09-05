@@ -16,15 +16,11 @@ class Kalc : public QWidget
     Q_OBJECT
 private:
     Controller* controller;
-    QHBoxLayout* grid;
+    QGridLayout* Aree;
     LeftArea* left;
     RightArea* right;
 public:
    explicit Kalc(QWidget *parent = nullptr);
-public slots:
-
-signals:
-
 };
 
 #endif // KALC_H

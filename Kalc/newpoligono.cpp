@@ -6,7 +6,9 @@ newPoligono::newPoligono(Controller *c, QWidget *parent):QWidget(parent),control
     xLineEditfirst = new QLineEdit();
     yLineEditfirst = new QLineEdit();
     QPushButton* salva = new QPushButton(tr("Aggiungi Punto"));
+    salva->setAutoDefault(true);
     crea = new QPushButton(tr("Crea Poligono"));
+    crea->setAutoDefault(true);
     crea->setEnabled(false);
 
     QVBoxLayout* Verticalform = new QVBoxLayout();
@@ -46,17 +48,16 @@ newPoligono::newPoligono(Controller *c, QWidget *parent):QWidget(parent),control
 
 void newPoligono::AddtoPoligono(){
     Punto p(xLineEditfirst->text().toDouble(),yLineEditfirst->text().toDouble());
-xLineEditfirst->setText("");
-yLineEditfirst->setText("");
-if(control->AddtoPol(p))
+    xLineEditfirst->setText("");
+    yLineEditfirst->setText("");
+    if(control->AddtoPol(p))
     crea->setEnabled(true);
-list->addItem(QString::fromStdString(control->stampaPunto(p)));
+    list->addItem(QString::fromStdString(control->stampaPunto(p)));
 }
 
 void newPoligono::save_item(){
-//      bisogna prendere la list di listWidget e passarla al control per creare la base
-//    control->newPoligono(xLineEditfirst->text().toDouble(),yLineEditfirst->text().toDouble());
-control->newPoligono();
+    control->newPoligono();
     list->clear();
+    crea->setEnabled(false);
     emit _salva();
 }
