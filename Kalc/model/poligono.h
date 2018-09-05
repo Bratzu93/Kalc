@@ -34,8 +34,6 @@ public:
     bool operator>(const Poligono&) const;
     bool operator==(const Poligono&)const;
     bool operator!=(const Poligono&)const;
-//    Poligono& operator+(const Poligono&);
-    double operator-(const Poligono&)const;
     //Poligono& operator*(const double&);
     //Poligono& operator/(const double&);
 friend Poligono operator +(const Poligono&,const Poligono&);

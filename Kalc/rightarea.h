@@ -45,6 +45,7 @@ public slots:
     void ClearPress();
     void savePress();
     void sommaPress();
+    void diffPress();
  signals:
     void AddItem();
 

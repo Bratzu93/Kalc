@@ -119,21 +119,17 @@ Poligono operator-(const Poligono& pol1, const Poligono& pol2){
 
 Poligono operator -(const Poligono& pol, const Punto& p){
 Base aux(pol);
-aux.add(p);
+aux.remove(p);
 Poligono aus(aux);
 return aus;
 }
 
 Poligono operator -(const Poligono& pol, const Segmento& s){
 Base aux(pol);
-aux.add(s.get_firstPoint());
-aux.add(s.get_secondPoint());
+aux.remove(s.get_firstPoint());
+aux.remove(s.get_secondPoint());
 Poligono aus(aux);
 return aus;
-}
-
-double Poligono::operator-(const Poligono& p)const{
-return area()-p.area();
 }
 
 

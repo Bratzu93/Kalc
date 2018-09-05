@@ -91,8 +91,10 @@ connect(addFirst,SIGNAL(clicked(bool)),this,SLOT(addFirstPress()));
 connect(addSecond,SIGNAL(clicked(bool)),this,SLOT(addSecondPress()));
 connect(Clear,SIGNAL(clicked(bool)),this,SLOT(ClearPress()));
 connect(somma,SIGNAL(clicked(bool)),this,SLOT(sommaPress()));
+connect(diff,SIGNAL(clicked(bool)),this,SLOT(diffPress()));
 connect(Save,SIGNAL(clicked(bool)),this,SLOT(savePress()));
 connect(this,SIGNAL(AddItem()),this,SLOT(ClearPress()));
+
 }
 void RightArea::selected(int i){
     addFirst->setEnabled(true);
@@ -138,6 +140,10 @@ asd->setEnabled(false);
 void RightArea::sommaPress(){
 risultato->setText(QString::fromStdString(control->Somma()));
 Save->setEnabled(true);
+}
+void RightArea::diffPress(){
+    risultato->setText(QString::fromStdString(control->Differenza()));
+    Save->setEnabled(true);
 }
 
 void RightArea::savePress(){

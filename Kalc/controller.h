@@ -18,7 +18,6 @@ Object* res;
 Punto punto;
 Segmento segmento;
 Poligono poligono;
-Base* bs;
 
 public:
     Controller();
@@ -40,6 +39,7 @@ public:
     std::string stampaOp1()const;
     std::string stampaOp2()const;
     std::string Somma();
+    std::string Differenza();
 };
 
 #endif // CONTROLLER_H
