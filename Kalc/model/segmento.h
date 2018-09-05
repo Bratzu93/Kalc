@@ -23,6 +23,7 @@ public:
     bool operator==(const Segmento&) const;
 
     friend Segmento operator +(const Segmento&,const Segmento&);
+    friend Segmento operator -(const Segmento&,const Segmento&);
 };
 
 #endif // Segmento_H

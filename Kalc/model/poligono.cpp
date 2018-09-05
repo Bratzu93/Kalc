@@ -88,13 +88,56 @@ Poligono aux((const_cast<Poligono&>(pol1)).append_vect(pol2));
 return aux;
 }
 
+Poligono operator +(const Poligono& pol, const Punto& p){
+Base aux(pol);
+aux.add(p);
+Poligono aus(aux);
+return aus;
+}
+
+Poligono operator +(const Poligono& pol, const Segmento& s){
+Base aux(pol);
+aux.add(s.get_firstPoint());
+aux.add(s.get_secondPoint());
+Poligono aus(aux);
+return aus;
+}
+
+
+Poligono operator-(const Poligono& pol1, const Poligono& pol2){
+    Base aux;
+    if(pol1.size()>pol2.size()){
+        for(unsigned int i=0; i<pol2.size();++i)
+            aux.add(*pol1.l[i] - *pol2.l[i]);
+    }else{
+        for(unsigned int i=0; i<pol1.size();++i)
+            aux.add(*pol2.l[i] - *pol1.l[i]);
+    }
+    Poligono aus(aux);
+    return aus;
+}
+
+Poligono operator -(const Poligono& pol, const Punto& p){
+Base aux(pol);
+aux.add(p);
+Poligono aus(aux);
+return aus;
+}
+
+Poligono operator -(const Poligono& pol, const Segmento& s){
+Base aux(pol);
+aux.add(s.get_firstPoint());
+aux.add(s.get_secondPoint());
+Poligono aus(aux);
+return aus;
+}
+
 double Poligono::operator-(const Poligono& p)const{
 return area()-p.area();
 }
 
 
 bool Poligono::interno (const Punto& p) const{
-
    unsigned short intersections = 0;
    for ( auto it = l.begin(); it != l.end(); it++ ) {
       Punto p1 = **it;

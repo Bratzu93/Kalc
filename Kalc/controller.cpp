@@ -3,7 +3,7 @@
 Controller::Controller(){
     op1=nullptr;
     op2=nullptr;
-    poligon=nullptr;
+    bs=nullptr;
 }
 
 void Controller::setOp1(int i){
@@ -86,13 +86,13 @@ base.clear();
 void Controller::newObject(){
     Punto* p = dynamic_cast<Punto*>(res);
     Segmento* s = dynamic_cast<Segmento*>(res);
-    Base* poli = dynamic_cast<Base*>(res);
+    Poligono* poli = dynamic_cast<Poligono*>(res);
 
     if(p) newPunto(p->get_x(),p->get_y());
     else if(s) newSegm(s->get_firstPoint(),s->get_secondPoint());
     else if(poli) {
-        poligon = new Base(*poli);
-        base=*poligon;
+        for(unsigned int i=0; i<poli->get_vect().size();++i)
+            AddtoPol(poli->PointfromPoligon(i));
         newPoligono();
     }
 }
@@ -110,9 +110,7 @@ std::string Controller::Somma(){
    Poligono* pol1 = dynamic_cast<Poligono*>(op1);
    Poligono* pol2 = dynamic_cast<Poligono*>(op2);
 
-
-//somma fra due punti
-    if(p1&&p2){
+    if(p1&&p2){             //somma fra due punti
         punto = *p1 + *p2;
         res = &punto;
     }else if(s1&&s2){       //somma fra due segmenti
@@ -127,8 +125,18 @@ std::string Controller::Somma(){
     }else if(pol1&&pol2){   //somma fra poligoni
         poligono = *pol1 + *pol2;
         res = &poligono;
-    } //fare somma fra altro
-
-
+    }else if(p1&&pol2){     //somma fra punto e poligono
+        poligono= *pol2 + *p1;
+        res=&poligono;
+    }else if(p2&&pol1){     //somma fra poligono e punto
+        poligono= *pol1 + *p2;
+        res=&poligono;
+    }else if(s1&&pol2){     //somma fra segmento e poligono
+        poligono= *pol2 + *s1;
+        res=&poligono;
+    }else if(s2&&pol1){     //somma fra poligono e segmento
+        poligono= *pol1 + *s2;
+        res=&poligono;
+    }
 return stampa(res);
 }

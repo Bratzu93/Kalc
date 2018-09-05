@@ -97,6 +97,29 @@ Segmento operator +(const Segmento& s1,const Segmento& s2){
     return temporaneo;
 }
 
+Segmento operator -(const Segmento& s1,const Segmento& s2){
+    Segmento temporaneo;
+        if(s1==s2){
+        temporaneo=s1;
+        }else if(s1>s2){
+        if(s1<s2){
+        Segmento temp(s1.p1,s1.p2);
+        temporaneo=temp;}
+        else{
+        Segmento temp(s1.p1,s2.p2);
+        temporaneo=temp;}
+    }else if(s2>s1){
+        if(s1<s2){
+            Segmento temp(s2.p1,s1.p2);
+            temporaneo=temp;}
+        else{
+            Segmento temp(s2.p1,s2.p2);
+            temporaneo=temp;
+        }
+    }
+    return temporaneo;
+}
+
 bool Segmento::operator<(const Segmento& s1) const{
     return (p1<s1.p1);
 }

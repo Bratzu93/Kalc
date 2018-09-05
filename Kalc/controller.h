@@ -18,7 +18,7 @@ Object* res;
 Punto punto;
 Segmento segmento;
 Poligono poligono;
-Base* poligon;
+Base* bs;
 
 public:
     Controller();

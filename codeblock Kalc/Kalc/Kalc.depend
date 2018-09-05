@@ -23,29 +23,42 @@
 	<vector>
 	"poligono.h"
 
-1536147765 c:\users\bratzu\desktop\kalc\kalc\model\poligono.h
+1536174985 c:\users\bratzu\desktop\kalc\kalc\model\poligono.h
 	"Punto.h"
 	"Base.h"
 	"segmento.h"
 	<vector>
 	<sstream>
 
-1536142521 source:c:\users\bratzu\desktop\kalc\kalc\model\poligono.cpp
+1536175026 source:c:\users\bratzu\desktop\kalc\kalc\model\poligono.cpp
 	"Poligono.h"
 
 1536112132 source:c:\users\bratzu\desktop\kalc\kalc\model\punto.cpp
 	"Punto.h"
 
-1536139735 source:c:\users\bratzu\desktop\kalc\kalc\model\segmento.cpp
+1536147503 source:c:\users\bratzu\desktop\kalc\kalc\model\segmento.cpp
 	"Segmento.h"
 
 1536147209 c:\users\bratzu\desktop\kalc\kalc\model\segmento.h
 	"Punto.h"
 
-1536144110 source:c:\users\bratzu\desktop\kalc\codeblock kalc\kalc\maincodeblock.cpp
+1536175188 source:c:\users\bratzu\desktop\kalc\codeblock kalc\kalc\maincodeblock.cpp
 	"../../Kalc/model/Punto.h"
 	"../../Kalc/model/base.h"
 	"../../Kalc/model/Poligono.h"
 	"../../Kalc/model/segmento.h"
+	"../../Kalc/controller.h"
 	<iostream>
+
+1536174850 source:c:\users\bratzu\desktop\kalc\kalc\controller.cpp
+	"controller.h"
+
+1536161925 c:\users\bratzu\desktop\kalc\kalc\controller.h
+	"model/object.h"
+	"model/Punto.h"
+	"model/poligono.h"
+	"model/segmento.h"
+	"model/base.h"
+	<typeinfo>
+	<sstream>
 

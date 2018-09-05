@@ -39,6 +39,13 @@ public:
     //Poligono& operator*(const double&);
     //Poligono& operator/(const double&);
 friend Poligono operator +(const Poligono&,const Poligono&);
+friend Poligono operator +(const Poligono&, const Punto&);
+friend Poligono operator +(const Poligono&, const Segmento&);
+
+friend Poligono operator -(const Poligono&,const Poligono&);
+friend Poligono operator -(const Poligono&, const Punto&);
+friend Poligono operator -(const Poligono&, const Segmento&);
+
 };
 
 #endif // Poligono_H

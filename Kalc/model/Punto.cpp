@@ -24,17 +24,6 @@ bool Punto::operator!=(const Punto& p)const{
     return (x!=p.x || y!=p.y);
 }
 
-
-//Punto& Punto::operator+(const Punto& p){
-//    x=x+p.x;
-//    y=y+p.y;
-//    return *this;
-//}
-Punto& Punto::operator-(const Punto& p){
-    x=x-p.x;
-    y=y-p.y;
-    return *this;
-}
 Punto& Punto::operator*(const Punto& p){
     x=x*p.x;
     y=y*p.y;
@@ -91,5 +80,11 @@ std::ostream& operator<<(std::ostream& os, const Punto& p){
 
 Punto operator +(const Punto& p1, const Punto& p2){
     Punto temp(p1.x+p2.x,p1.y+p2.y);
+     return temp;
+}
+
+
+Punto operator-(const Punto& p1, const Punto& p2){
+    Punto temp(p1.x-p2.x,p1.y-p2.y);
      return temp;
 }

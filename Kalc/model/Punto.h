@@ -19,8 +19,6 @@ public:
     bool operator>(const Punto&) const;
     bool operator==(const Punto&)const;
     bool operator!=(const Punto&)const;
-//    Punto& operator+(const Punto&);
-    Punto& operator-(const Punto&);
     Punto& operator*(const Punto&);
     Punto& operator/(const Punto&);
 
@@ -41,6 +39,7 @@ public:
     // negativo per il senso orario e zero se i punti sono allineati.
     friend std::ostream& operator<<(std::ostream& os, const Punto& p);
     friend Punto operator +(const Punto&,const Punto&);
+    friend Punto operator-(const Punto&,const Punto&);
 };
 
 #endif // Punto_H
