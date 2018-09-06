@@ -3,6 +3,7 @@
 Controller::Controller(){
     op1=nullptr;
     op2=nullptr;
+    res=nullptr;
 }
 
 void Controller::setOp1(int i){
@@ -173,6 +174,84 @@ std::string Controller::Differenza(){
         res=&poligono;
     }else if(s2&&pol1){     //differenza fra poligono e segmento
         poligono= *pol1 - *s2;
+        res=&poligono;
+    }
+return stampa(res);
+}
+
+std::string Controller::Moltiplicazione(){
+   Punto* p1 = dynamic_cast<Punto*>(op1);
+   Punto* p2 = dynamic_cast<Punto*>(op2);
+   Segmento* s1 = dynamic_cast<Segmento*>(op1);
+   Segmento* s2 = dynamic_cast<Segmento*>(op2);
+   Poligono* pol1 = dynamic_cast<Poligono*>(op1);
+   Poligono* pol2 = dynamic_cast<Poligono*>(op2);
+
+    if(p1&&p2){             //moltiplicazione fra due punti
+        punto = *p1 * *p2;
+        res = &punto;
+    }else if(s1&&s2){       //moltiplicazione fra due segmenti
+        segmento = *s1 * *s2;
+        res = &segmento;
+    }else if(p1&&s2){       //moltiplicazione fra punto e segmento
+        segmento = *p1 * *s2;
+        res = &segmento;
+    }else if(p2&&s1){       //moltiplicazione fra segmento e punto
+        segmento = *s1 * *p2;
+        res = &segmento;
+    }else if(pol1&&pol2){   //moltiplicazione fra poligoni
+        poligono = *pol1 * *pol2;
+        res = &poligono;
+    }else if(p1&&pol2){     //moltiplicazione fra punto e poligono
+        poligono= *pol2 * *p1;
+        res=&poligono;
+    }else if(p2&&pol1){     //moltiplicazione fra poligono e punto
+        poligono= *pol1 * *p2;
+        res=&poligono;
+    }else if(s1&&pol2){     //moltiplicazione fra segmento e poligono
+        poligono= *pol2 * *s1;
+        res=&poligono;
+    }else if(s2&&pol1){     //moltiplicazione fra poligono e segmento
+        poligono= *pol1 * *s2;
+        res=&poligono;
+    }
+return stampa(res);
+}
+
+std::string Controller::Divisione(){
+   Punto* p1 = dynamic_cast<Punto*>(op1);
+   Punto* p2 = dynamic_cast<Punto*>(op2);
+   Segmento* s1 = dynamic_cast<Segmento*>(op1);
+   Segmento* s2 = dynamic_cast<Segmento*>(op2);
+   Poligono* pol1 = dynamic_cast<Poligono*>(op1);
+   Poligono* pol2 = dynamic_cast<Poligono*>(op2);
+
+    if(p1&&p2){             //divisione fra due punti
+        punto = *p1 / *p2;
+        res = &punto;
+    }else if(s1&&s2){       //divisione fra due segmenti
+        segmento = *s1 / *s2;
+        res = &segmento;
+    }else if(p1&&s2){       //divisione fra punto e segmento
+        segmento = *p1 / *s2;
+        res = &segmento;
+    }else if(p2&&s1){       //divisione fra segmento e punto
+        segmento = *s1 / *p2;
+        res = &segmento;
+    }else if(pol1&&pol2){   //divisione fra poligoni
+        poligono = *pol1 / *pol2;
+        res = &poligono;
+    }else if(p1&&pol2){     //divisione fra punto e poligono
+        poligono= *pol2 / *p1;
+        res=&poligono;
+    }else if(p2&&pol1){     //divisione fra poligono e punto
+        poligono= *pol1 / *p2;
+        res=&poligono;
+    }else if(s1&&pol2){     //divisione fra segmento e poligono
+        poligono= *pol2 / *s1;
+        res=&poligono;
+    }else if(s2&&pol1){     //divisione fra poligono e segmento
+        poligono= *pol1 / *s2;
         res=&poligono;
     }
 return stampa(res);

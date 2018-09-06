@@ -19,8 +19,8 @@ public:
     bool operator>(const Punto&) const;
     bool operator==(const Punto&)const;
     bool operator!=(const Punto&)const;
-    Punto& operator*(const Punto&);
-    Punto& operator/(const Punto&);
+    Punto operator*(const double&)const;
+    Punto operator/(const double&)const;
 
     //metodi setter e getter
     void set_x(const double& _x);
@@ -40,6 +40,8 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Punto& p);
     friend Punto operator +(const Punto&,const Punto&);
     friend Punto operator-(const Punto&,const Punto&);
+    friend Punto operator*(const Punto&,const Punto&);
+    friend Punto operator/(const Punto&,const Punto&);
 };
 
 #endif // Punto_H

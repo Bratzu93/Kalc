@@ -40,6 +40,8 @@ public:
     std::string stampaOp2()const;
     std::string Somma();
     std::string Differenza();
+    std::string Moltiplicazione();
+    std::string Divisione();
 };
 
 #endif // CONTROLLER_H

@@ -120,6 +120,23 @@ Segmento operator -(const Segmento& s1,const Segmento& s2){
     return temporaneo;
 }
 
+Segmento operator *(const Segmento& s1,const Segmento& s2){
+    double dist = s2.lunghezza();
+    Punto point((s1.p2).operator *(dist));
+    Segmento temporaneo(s1.p1,point);
+    return temporaneo;
+}
+
+Segmento operator /(const Segmento& s1,const Segmento& s2){
+    double dist = s2.lunghezza();
+    if(dist==0)
+        return s1;
+    Punto point((s1.p2).operator /(dist));
+    Segmento temporaneo(s1.p1,point);
+    return temporaneo;
+}
+
+
 bool Segmento::operator<(const Segmento& s1) const{
     return (p1<s1.p1);
 }

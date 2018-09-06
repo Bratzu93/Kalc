@@ -46,7 +46,9 @@ public slots:
     void savePress();
     void sommaPress();
     void diffPress();
- signals:
+    void moltPress();
+    void divPress();
+signals:
     void AddItem();
 
 };

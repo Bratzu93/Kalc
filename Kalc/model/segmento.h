@@ -24,6 +24,8 @@ public:
 
     friend Segmento operator +(const Segmento&,const Segmento&);
     friend Segmento operator -(const Segmento&,const Segmento&);
+    friend Segmento operator *(const Segmento&,const Segmento&);
+    friend Segmento operator /(const Segmento&,const Segmento&);
 };
 
 #endif // Segmento_H

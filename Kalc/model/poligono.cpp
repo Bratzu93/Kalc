@@ -132,6 +132,79 @@ Poligono aus(aux);
 return aus;
 }
 
+Poligono operator*(const Poligono& pol1, const Poligono& pol2){
+    Base aux;
+    if(pol1.size()>pol2.size()){
+        for(unsigned int i=0; i<pol2.size();++i)
+            aux.add(*pol1.l[i] * *pol2.l[i]);
+    }else{
+        for(unsigned int i=0; i<pol1.size();++i)
+            aux.add(*pol2.l[i] * *pol1.l[i]);
+    }
+    Poligono aus(aux);
+    return aus;
+}
+
+Poligono operator *(const Poligono& pol, const Punto& p){
+Punto test(0,0);
+Base aux;
+    if(p==test && pol.size()>2)return pol;
+for(unsigned int i=0; i<pol.size();++i){
+    aux.add(*pol.l[i] * p);
+}
+Poligono aus(aux);
+return aus;
+}
+
+
+Poligono operator *(const Poligono& pol, const Segmento& s){
+Base aux;
+int dist = s.lunghezza();
+for(unsigned int i=0; i<pol.size();++i){
+    Punto x(pol.l[i]->get_x()*dist,pol.l[i]->get_y()*dist);
+    aux.add(x);
+}
+Poligono aus(aux);
+return aus;
+}
+
+Poligono operator/(const Poligono& pol1, const Poligono& pol2){
+    Base aux;
+    if(pol1.size()>pol2.size()){
+        for(unsigned int i=0; i<pol2.size();++i)
+            aux.add(*pol1.l[i] / *pol2.l[i]);
+    }else{
+        for(unsigned int i=0; i<pol1.size();++i)
+            aux.add(*pol2.l[i] / *pol1.l[i]);
+    }
+    Poligono aus(aux);
+    return aus;
+}
+
+Poligono operator /(const Poligono& pol, const Punto& p){
+Punto test(0,0);
+Base aux;
+    if(p==test && pol.size()>2)return pol;
+for(unsigned int i=0; i<pol.size();++i){
+    aux.add(*pol.l[i] / p);
+}
+Poligono aus(aux);
+return aus;
+}
+
+Poligono operator /(const Poligono& pol, const Segmento& s){
+Base aux;
+int dist = s.lunghezza();
+if(dist==0)return pol;
+for(unsigned int i=0; i<pol.size();++i){
+    Punto x(pol.l[i]->get_x()/dist,pol.l[i]->get_y()/dist);
+    aux.add(x);
+}
+Poligono aus(aux);
+return aus;
+}
+
+
 
 bool Poligono::interno (const Punto& p) const{
    unsigned short intersections = 0;

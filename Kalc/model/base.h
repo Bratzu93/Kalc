@@ -24,7 +24,6 @@ public:
     virtual void trasla_asseX(const double&);
     virtual void trasla_asseY(const double&);
     void trasla(const double& _x=0,const double& _y=0);
-    //virtual void rotea(const double& gradi);
     //virtual void coppia_piu_vicina(); //Da Fare   stampa la coppia di punti con distanza minima tra le n combinazioni
     //cammino minimo
     static vector<Punto*> convex_hull(Base &P);

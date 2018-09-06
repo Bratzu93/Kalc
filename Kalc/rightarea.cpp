@@ -92,6 +92,8 @@ connect(addSecond,SIGNAL(clicked(bool)),this,SLOT(addSecondPress()));
 connect(Clear,SIGNAL(clicked(bool)),this,SLOT(ClearPress()));
 connect(somma,SIGNAL(clicked(bool)),this,SLOT(sommaPress()));
 connect(diff,SIGNAL(clicked(bool)),this,SLOT(diffPress()));
+connect(molt,SIGNAL(clicked(bool)),this,SLOT(moltPress()));
+connect(div,SIGNAL(clicked(bool)),this,SLOT(divPress()));
 connect(Save,SIGNAL(clicked(bool)),this,SLOT(savePress()));
 connect(this,SIGNAL(AddItem()),this,SLOT(ClearPress()));
 
@@ -145,6 +147,16 @@ void RightArea::diffPress(){
     risultato->setText(QString::fromStdString(control->Differenza()));
     Save->setEnabled(true);
 }
+
+void RightArea::moltPress(){
+    risultato->setText(QString::fromStdString(control->Moltiplicazione()));
+    Save->setEnabled(true);
+}
+void RightArea::divPress(){
+    risultato->setText(QString::fromStdString(control->Divisione()));
+    Save->setEnabled(true);
+}
+
 
 void RightArea::savePress(){
 control->newObject();

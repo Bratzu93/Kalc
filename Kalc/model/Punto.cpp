@@ -24,15 +24,11 @@ bool Punto::operator!=(const Punto& p)const{
     return (x!=p.x || y!=p.y);
 }
 
-Punto& Punto::operator*(const Punto& p){
-    x=x*p.x;
-    y=y*p.y;
-    return *this;
-}
-Punto& Punto::operator/(const Punto& p){
-    x=x/p.x;
-    y=y/p.y;
-    return *this;
+Punto Punto::operator*(const double& p)const{
+    Punto aux;
+    aux.x= x*p;
+    aux.y = y*p;
+    return aux;
 }
 
 // metodi setter e getter
@@ -86,5 +82,27 @@ Punto operator +(const Punto& p1, const Punto& p2){
 
 Punto operator-(const Punto& p1, const Punto& p2){
     Punto temp(p1.x-p2.x,p1.y-p2.y);
+     return temp;
+}
+
+
+Punto operator*(const Punto& p1, const Punto& p2){
+    Punto temp(p1.x*p2.x,p1.y*p2.y);
+     return temp;
+}
+
+Punto Punto::operator/(const double& p)const{
+    Punto aux(0,0);
+    if(p==0)return *this;
+    aux.x = x/p;
+    aux.y = y/p;
+    return aux;
+}
+
+
+Punto operator/(const Punto& p1, const Punto& p2){
+    if(p2.x==0 || p2.y==0)
+        return p1;
+    Punto temp(p1.x/p2.x,p1.y/p2.y);
      return temp;
 }
