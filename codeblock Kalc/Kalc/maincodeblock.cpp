@@ -32,9 +32,6 @@ control->AddtoPol(p);
 control->AddtoPol(p3);
 control->AddtoPol(p6);
 control->newPoligono();
-control->setOp1(1);
-control->setOp2(2);
-control->Somma();
-control->newObject();
-cout<<control->stampa(control->getElement(3));
+Segmento s(p2,p);
+cout<<s.lunghezza();
 }

@@ -37,8 +37,7 @@ SOURCES += \
     newpoint.cpp \
     newsegmento.cpp \
     newpoligono.cpp \
-    dettagli.cpp \
-    unaria.cpp
+    dettagli.cpp
 
 HEADERS += \
     kalc.h \
@@ -55,4 +54,3 @@ HEADERS += \
     newsegmento.h \
     newpoligono.h \
     dettagli.h \
-    unaria.h

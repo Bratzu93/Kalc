@@ -13,7 +13,6 @@ INPUT(
 ./debug\newsegmento.o
 ./debug\newpoligono.o
 ./debug\dettagli.o
-./debug\unaria.o
 ./debug\moc_kalc.o
 ./debug\moc_leftarea.o
 ./debug\moc_creazione.o
@@ -22,5 +21,4 @@ INPUT(
 ./debug\moc_newsegmento.o
 ./debug\moc_newpoligono.o
 ./debug\moc_dettagli.o
-./debug\moc_unaria.o
 );

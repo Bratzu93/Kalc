@@ -13,7 +13,6 @@ INPUT(
 ./release\newsegmento.o
 ./release\newpoligono.o
 ./release\dettagli.o
-./release\unaria.o
 ./release\moc_kalc.o
 ./release\moc_leftarea.o
 ./release\moc_creazione.o
@@ -22,5 +21,4 @@ INPUT(
 ./release\moc_newsegmento.o
 ./release\moc_newpoligono.o
 ./release\moc_dettagli.o
-./release\moc_unaria.o
 );
