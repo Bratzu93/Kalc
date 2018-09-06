@@ -31,10 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../../Kalc/controller.cpp" />
+		<Unit filename="../../Kalc/controller.h" />
 		<Unit filename="../../Kalc/model/Punto.cpp" />
 		<Unit filename="../../Kalc/model/Punto.h" />
 		<Unit filename="../../Kalc/model/base.cpp" />
 		<Unit filename="../../Kalc/model/base.h" />
+		<Unit filename="../../Kalc/model/object.h" />
 		<Unit filename="../../Kalc/model/poliedro.cpp" />
 		<Unit filename="../../Kalc/model/poliedro.h" />
 		<Unit filename="../../Kalc/model/poligono.cpp" />

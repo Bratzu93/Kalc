@@ -66,6 +66,10 @@ bool Poligono::equilatero()const{
 return true;
 }
 
+void Poligono::trasla(const double& _x,const double& _y){
+for(unsigned int i=0;i<l.size();++i)
+    (*l[i]).trasla(_x,_y);
+}
 
 bool Poligono::operator<(const Poligono& p) const{
     return (area()<p.area());
@@ -249,3 +253,5 @@ Punto Poligono::Punto_piu_vicino(const Punto& p)const{
     x=s.Punto_piu_vicino(p);
 return x;
 }
+
+

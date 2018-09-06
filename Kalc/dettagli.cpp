@@ -179,7 +179,7 @@ void Dettagli::DettagliPoligono(const Poligono &pol){
     x->setText(QString::fromStdString(control->stampaPoligono(pol)));
     y->setText(QString::number(pol.area()));
     xbis->setText(QString::number(pol.perimetro()));
-    ybis->setText(QString::number(pol.equilatero()));
+    ybis->setText(QString::fromStdString(control->IsEquilatero(pol)));
     x->setEnabled(false);
     y->setEnabled(false);
     xbis->setEnabled(false);

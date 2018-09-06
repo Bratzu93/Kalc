@@ -12,10 +12,10 @@ RightArea::RightArea(Controller *c, QWidget *parent):QWidget(parent),control(c)
     QGridLayout* ResultLayout = new QGridLayout;
     QVBoxLayout* itemsLayout = new QVBoxLayout;
     QGridLayout* operatori = new QGridLayout;
-    QHBoxLayout* funzioni = new QHBoxLayout;
+    QGridLayout* funzioni = new QGridLayout;
 
-    QLabel* _addFirst = new QLabel(tr("primo"));
-    QLabel* _addSecond = new QLabel(tr("secondo"));
+    QLabel* _addFirst = new QLabel(tr("primo operando"));
+    QLabel* _addSecond = new QLabel(tr("secondo operando"));
 
     first = new QLineEdit;
     second= new QLineEdit;
@@ -43,13 +43,25 @@ RightArea::RightArea(Controller *c, QWidget *parent):QWidget(parent),control(c)
     div->setEnabled(false);
 
     trasla = new QPushButton(tr("Trasla"));
+    _traslaX = new QLineEdit;
+    _traslaY = new QLineEdit;
+    traslaX = new QLabel(tr("Asse x:"));
+    traslaY= new QLabel(tr("Asse Y:"));
+    _trasla = new QPushButton(tr("salva"));
+    _trasla->setVisible(false);
+    _trasla->setEnabled(false);
+    _traslaX->setVisible(false);
+    traslaX->setVisible(false);
+    _traslaY->setVisible(false);
+    traslaY->setVisible(false);
+
     interno = new QPushButton(tr("interno"));
     puntoPiuVicino = new QPushButton(tr("Punto più vicino"));
-    asd = new QPushButton(tr("Altro"));
+    SommaSegm = new QPushButton(tr("Somma segmenti"));
     trasla->setEnabled(false);
     interno->setEnabled(false);
     puntoPiuVicino->setEnabled(false);
-    asd->setEnabled(false);
+    SommaSegm->setEnabled(true);
 
     FirstLayout->addWidget(_addFirst);
     FirstLayout->addWidget(addFirst);
@@ -71,16 +83,22 @@ RightArea::RightArea(Controller *c, QWidget *parent):QWidget(parent),control(c)
     operatori->addWidget(molt,1,0,Qt::AlignRight);
     operatori->addWidget(div,1,1,Qt::AlignLeft);
 
-    funzioni->addWidget(trasla);
-    funzioni->addWidget(interno);
-    funzioni->addWidget(puntoPiuVicino);
-    funzioni->addWidget(asd);
+    funzioni->addWidget(interno,0,0);
+    funzioni->addWidget(puntoPiuVicino,0,1);
+    funzioni->addWidget(SommaSegm,0,2);
+    funzioni->addWidget(trasla,1,0);
+    funzioni->addWidget(traslaX,1,1);
+    funzioni->addWidget(_traslaX,1,2);
+    funzioni->addWidget(_trasla,2,0);
+    funzioni->addWidget(traslaY,2,1);
+    funzioni->addWidget(_traslaY,2,2);
 
     itemsLayout->addLayout(OpLayout);
     itemsLayout->addLayout(ResultLayout);
     itemsLayout->addLayout(operatori);
+    itemsLayout->addStretch(1);
     itemsLayout->addLayout(funzioni);
-    itemsLayout->addStretch(0);
+    itemsLayout->addStretch(2);
     group->setLayout(itemsLayout);
 
     struttura->addWidget(group);
@@ -96,14 +114,18 @@ connect(molt,SIGNAL(clicked(bool)),this,SLOT(moltPress()));
 connect(div,SIGNAL(clicked(bool)),this,SLOT(divPress()));
 connect(Save,SIGNAL(clicked(bool)),this,SLOT(savePress()));
 connect(trasla,SIGNAL(clicked(bool)),this,SLOT(traslaPress()));
+connect(_trasla,SIGNAL(clicked(bool)),this,SLOT(_traslaPress()));
 connect(this,SIGNAL(AddItem()),this,SLOT(ClearPress()));
-
+connect(puntoPiuVicino,SIGNAL(clicked(bool)),this,SLOT(Punto_VicinoPress()));
+connect(interno,SIGNAL(clicked(bool)),this,SLOT(internoPress()));
+connect(SommaSegm,SIGNAL(clicked(bool)),this,SLOT(SommaSegmPress()));
 }
 void RightArea::selected(int i){
     addFirst->setEnabled(true);
     indice = i;
 }
 void RightArea::addFirstPress(){
+    SommaSegm->setEnabled(false);
     control->setOp1(indice);
     first->setText(QString::fromStdString(control->stampaOp1()));
     addSecond->setEnabled(true);
@@ -120,7 +142,7 @@ void RightArea::addSecondPress(){
     trasla->setEnabled(false);
     interno->setEnabled(true);
     puntoPiuVicino->setEnabled(true);
-    asd->setEnabled(true);
+    SommaSegm->setEnabled(false);
 }
 
 void RightArea::ClearPress(){
@@ -137,7 +159,7 @@ Save->setEnabled(false);
 trasla->setEnabled(false);
 interno->setEnabled(false);
 puntoPiuVicino->setEnabled(false);
-asd->setEnabled(false);
+SommaSegm->setEnabled(true);
 }
 
 void RightArea::sommaPress(){
@@ -165,5 +187,52 @@ emit AddItem();
 }
 
 void RightArea::traslaPress(){
-//control->Trasla();
+    if(_trasla->isVisible()){
+        _trasla->setVisible(false);
+        _trasla->setEnabled(false);
+        _traslaX->setVisible(false);
+        traslaX->setVisible(false);
+        _traslaY->setVisible(false);
+        traslaY->setVisible(false);
+    }else{
+        SommaSegm->setEnabled(false);
+        _trasla->setVisible(true);
+        _trasla->setEnabled(true);
+        _traslaX->setVisible(true);
+        traslaX->setVisible(true);
+        _traslaY->setVisible(true);
+        traslaY->setVisible(true);
+    }
+
+}
+void RightArea::_traslaPress(){
+    control->Trasla(_traslaX->text().toDouble(),_traslaY->text().toDouble());
+    traslaPress();
+    _traslaX->setText("");
+    _traslaY->setText("");
+    emit AddItem();
+}
+
+void RightArea::Punto_VicinoPress(){
+    try{
+        risultato->setText(QString::fromStdString(control->Punto_piu_vicino()));
+        Save->setEnabled(true);
+    }
+    catch(PuntoExep){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("Il primo operando deve essere un punto")));
+        errorMsg->exec();
+    }
+}
+
+void RightArea::internoPress(){
+    try{risultato->setText(QString::fromStdString(control->Interno()));}
+    catch(PoligonoInternoExep){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("Il primo operando deve essere un Punto e il secondo un Poligono")));
+        errorMsg->exec();
+    }
+}
+void RightArea::SommaSegmPress(){
+    risultato->setText(QString::number(control->SommaSegmenti()));
 }

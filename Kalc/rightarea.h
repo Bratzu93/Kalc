@@ -7,6 +7,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QGroupBox>
+#include <QMessageBox>
 #include "unaria.h"
 
 class RightArea : public QWidget
@@ -28,9 +29,14 @@ private:
     QPushButton* molt;
     QPushButton* div;
     QPushButton* trasla;
+    QLabel* traslaX;
+    QLabel* traslaY;
+    QLineEdit* _traslaX;
+    QLineEdit* _traslaY;
+    QPushButton* _trasla;
     QPushButton* puntoPiuVicino;
     QPushButton* interno;
-    QPushButton* asd;
+    QPushButton* SommaSegm;
 
 
     int indice;
@@ -49,6 +55,10 @@ public slots:
     void moltPress();
     void divPress();
     void traslaPress();
+    void _traslaPress();
+    void internoPress();
+    void Punto_VicinoPress();
+    void SommaSegmPress();
 signals:
     void AddItem();
 

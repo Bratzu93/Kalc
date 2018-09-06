@@ -27,7 +27,6 @@ public:
     void set_y(const double& _y);
     double get_x()const;
     double get_y()const;
-
     // altre funzioni
     virtual void stampa()const;
     static double distanza(const Punto& first_point, const Punto& second_point);

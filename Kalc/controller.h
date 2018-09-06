@@ -39,11 +39,15 @@ public:
     std::string stampaOp1()const;
     std::string stampaOp2()const;
     std::string stampaResult()const;
+    std::string IsEquilatero(const Poligono&)const;
     std::string Somma();
     std::string Differenza();
     std::string Moltiplicazione();
     std::string Divisione();
-    // aggiungere trasla con int destra int basso
+    void Trasla(const double&,const double&);
+    std::string Punto_piu_vicino();
+    std::string Interno();
+    double SommaSegmenti();
 };
 
 #endif // CONTROLLER_H

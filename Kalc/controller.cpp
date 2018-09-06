@@ -57,6 +57,10 @@ std::string Controller::stampaPoligono(const Poligono& p)const{
 return p.OutPunti();
 }
 
+std::string Controller::IsEquilatero(const Poligono& pol)const{
+if(pol.equilatero()) return std::string("Poligono equilatero");
+else return std::string("Poligono non equilatero");
+}
 
 void Controller::newSegm(const Punto& first, const Punto& second) {
     Segmento* l = new Segmento(first,second);
@@ -105,6 +109,7 @@ return list[i];
 }
 
 std::string Controller::Somma(){
+
    Punto* p1 = dynamic_cast<Punto*>(op1);
    Punto* p2 = dynamic_cast<Punto*>(op2);
    Segmento* s1 = dynamic_cast<Segmento*>(op1);
@@ -259,3 +264,47 @@ std::string Controller::Divisione(){
     }
 return stampa(res);
 }
+void Controller::Trasla(const double& x, const double& y){
+op1->trasla(x,y);
+}
+std::string Controller::Punto_piu_vicino(){
+    Punto* point;
+    if(!(dynamic_cast<Punto*>(op1))) throw PuntoExep();
+    else point = static_cast<Punto*>(op1);
+
+        if(dynamic_cast<Segmento*>(op2)){
+       punto = (static_cast<Segmento*>(op2))->Punto_piu_vicino(*point);
+        res=&punto;
+    }else if(dynamic_cast<Poligono*>(op2)){
+         punto = (static_cast<Poligono*>(op2))->Punto_piu_vicino(*point);
+         res=&punto;
+    }
+return stampa(res);
+}
+
+std::string Controller::Interno(){
+    if(dynamic_cast<Poligono*>(op2) && dynamic_cast<Punto*>(op1)){
+        Punto* point = static_cast<Punto*>(op1);
+        Poligono* polygon = static_cast<Poligono*>(op2);
+        if(polygon->interno(*point)) return std::string("il punto è interno al poligono");
+            else return std::string("il punto è esterno al poligono");
+    }
+    else throw PoligonoInternoExep();
+
+}
+
+double Controller::SommaSegmenti(){
+    double distanza=0;
+    for(unsigned int i=0;i<list.size();++i){
+        if(dynamic_cast<Segmento*>(list[i]))
+            distanza += static_cast<Segmento*>(list[i])->lunghezza();
+    }
+    return distanza;
+}
+
+
+
+
+
+
+

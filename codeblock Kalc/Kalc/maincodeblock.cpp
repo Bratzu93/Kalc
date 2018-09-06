@@ -2,6 +2,7 @@
 #include "../../Kalc/model/base.h"
 #include "../../Kalc/model/Poligono.h"
 #include "../../Kalc/model/segmento.h"
+#include "../../Kalc/model/object.h"
 #include "../../Kalc/controller.h"
 #include <iostream>
 using namespace std;
@@ -21,8 +22,17 @@ b.add(p1);
 b.add(p2);
 b.add(p3);
 
+b.stampa();
+cout<<endl;
+b.trasla(2,2);
+b.stampa();
 cout<<endl;
 Poligono pol1(b);
+pol1.stampa();
+cout<<endl;
+pol1.trasla(3,3);
+pol1.stampa();
+/*
 control->newPunto(p1.get_x(),p1.get_y());
 control->newSegm(p,p1);
 control->AddtoPol(p);
@@ -36,4 +46,5 @@ control->setOp2(3);
 cout<<control->Somma();
 control->stampaResult();
 control->newObject();
+*/
 }

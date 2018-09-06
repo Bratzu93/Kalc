@@ -26,6 +26,7 @@ public:
     virtual  double area()const;
     virtual  double perimetro()const;
     virtual  bool equilatero()const;
+    void trasla(const double& _x=0,const double& _y=0);
     //vector<Poligono>* triangolazione()const;   triangolazione: dato un poligono, determinare una sua partizione in triangoli.
     //bool equiangolo()const; // Da fare
     Punto Punto_piu_vicino(const Punto&)const;

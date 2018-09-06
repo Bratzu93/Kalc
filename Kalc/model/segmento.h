@@ -10,7 +10,7 @@ private:
 public:
     Segmento(const Punto& _p1=(0), const Punto& _p2=(0));
     Punto Punto_medio()const;
-    Punto Punto_piu_vicino(const Punto &p)const;
+    Punto Punto_piu_vicino(const Punto&)const;
     void trasla(const double& _x,const double& _y);
     Punto get_firstPoint()const;
     Punto get_secondPoint()const;
