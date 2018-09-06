@@ -17,7 +17,6 @@ public:
     Base& operator=(const Base&);
     vector<Punto> get_vect()const;
     Base& append_vect(const Base&);
-    unsigned int size()const;
     void add(const Punto &);
     void remove(const Punto&);
     void clear();

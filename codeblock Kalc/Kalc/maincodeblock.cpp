@@ -9,29 +9,31 @@ int main()
 {
 Controller* control = new Controller;
 Punto p(0,0);
-Punto p1(11,9);
-Punto p2(2,0);
-Punto p3(2,4);
-Punto p4(-1,-1);
-Punto p5(3,3);
+Punto p1(5,5);
+Punto p2(0,5);
+Punto p3(5,0);
+Punto p4(3,3);
+Punto p5(6,6);
 Punto p6(-8,-8);
 Base b;
 b.add(p);
 b.add(p1);
 b.add(p2);
 b.add(p3);
-Base b2;
-b2.add(p);
-b2.add(p3);
-b2.add(p6);
+
 cout<<endl;
 Poligono pol1(b);
 control->newPunto(p1.get_x(),p1.get_y());
 control->newSegm(p,p1);
 control->AddtoPol(p);
+control->AddtoPol(p1);
+control->AddtoPol(p2);
 control->AddtoPol(p3);
-control->AddtoPol(p6);
 control->newPoligono();
-Segmento s(p2,p);
-cout<<s.lunghezza();
+control->newSegm(p4,p5);
+control->setOp1(2);
+control->setOp2(3);
+cout<<control->Somma();
+control->stampaResult();
+control->newObject();
 }

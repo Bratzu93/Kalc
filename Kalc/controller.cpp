@@ -19,6 +19,9 @@ std::string Controller::stampaOp1()const{
 std::string Controller::stampaOp2()const{
     return stampa(op2);
 }
+std::string Controller::stampaResult()const{
+    return stampa(res);
+}
 void Controller::newPunto(double x, double y) {
     Punto* l = new Punto(x,y);
     Controller::list.push_back(l);
@@ -91,7 +94,7 @@ void Controller::newObject(){
     if(p) newPunto(p->get_x(),p->get_y());
     else if(s) newSegm(s->get_firstPoint(),s->get_secondPoint());
     else if(poli) {
-        for(unsigned int i=0; i<poli->size();++i)
+        for(unsigned int i=0; i<poli->get_vect().size();++i)
             AddtoPol(poli->PointfromPoligon(i));
         newPoligono();
     }

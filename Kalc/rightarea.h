@@ -48,6 +48,7 @@ public slots:
     void diffPress();
     void moltPress();
     void divPress();
+    void traslaPress();
 signals:
     void AddItem();
 

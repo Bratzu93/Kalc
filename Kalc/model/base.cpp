@@ -16,9 +16,6 @@ Base& Base::operator=(const Base& B){
   return *this;
 }
 
-unsigned int Base::size()const{
-    return v.size();
-}
 
 vector<Punto> Base::get_vect()const{
     return v;

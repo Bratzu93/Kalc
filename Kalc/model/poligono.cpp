@@ -106,11 +106,11 @@ return aus;
 
 Poligono operator-(const Poligono& pol1, const Poligono& pol2){
     Base aux;
-    if(pol1.size()>pol2.size()){
-        for(unsigned int i=0; i<pol2.size();++i)
+    if(pol1.l.size()>pol2.l.size()){
+        for(unsigned int i=0; i<pol2.l.size();++i)
             aux.add(*pol1.l[i] - *pol2.l[i]);
     }else{
-        for(unsigned int i=0; i<pol1.size();++i)
+        for(unsigned int i=0; i<pol1.l.size();++i)
             aux.add(*pol2.l[i] - *pol1.l[i]);
     }
     Poligono aus(aux);
@@ -134,11 +134,11 @@ return aus;
 
 Poligono operator*(const Poligono& pol1, const Poligono& pol2){
     Base aux;
-    if(pol1.size()>pol2.size()){
-        for(unsigned int i=0; i<pol2.size();++i)
+    if(pol1.l.size()>pol2.l.size()){
+        for(unsigned int i=0; i<pol2.l.size();++i)
             aux.add(*pol1.l[i] * *pol2.l[i]);
     }else{
-        for(unsigned int i=0; i<pol1.size();++i)
+        for(unsigned int i=0; i<pol1.l.size();++i)
             aux.add(*pol2.l[i] * *pol1.l[i]);
     }
     Poligono aus(aux);
@@ -148,8 +148,8 @@ Poligono operator*(const Poligono& pol1, const Poligono& pol2){
 Poligono operator *(const Poligono& pol, const Punto& p){
 Punto test(0,0);
 Base aux;
-    if(p==test && pol.size()>2)return pol;
-for(unsigned int i=0; i<pol.size();++i){
+    if(p==test && pol.l.size()>2)return pol;
+for(unsigned int i=0; i<pol.l.size();++i){
     aux.add(*pol.l[i] * p);
 }
 Poligono aus(aux);
@@ -160,7 +160,7 @@ return aus;
 Poligono operator *(const Poligono& pol, const Segmento& s){
 Base aux;
 int dist = s.lunghezza();
-for(unsigned int i=0; i<pol.size();++i){
+for(unsigned int i=0; i<pol.l.size();++i){
     Punto x(pol.l[i]->get_x()*dist,pol.l[i]->get_y()*dist);
     aux.add(x);
 }
@@ -170,11 +170,11 @@ return aus;
 
 Poligono operator/(const Poligono& pol1, const Poligono& pol2){
     Base aux;
-    if(pol1.size()>pol2.size()){
-        for(unsigned int i=0; i<pol2.size();++i)
+    if(pol1.l.size()>pol2.l.size()){
+        for(unsigned int i=0; i<pol2.l.size();++i)
             aux.add(*pol1.l[i] / *pol2.l[i]);
     }else{
-        for(unsigned int i=0; i<pol1.size();++i)
+        for(unsigned int i=0; i<pol1.l.size();++i)
             aux.add(*pol2.l[i] / *pol1.l[i]);
     }
     Poligono aus(aux);
@@ -184,8 +184,8 @@ Poligono operator/(const Poligono& pol1, const Poligono& pol2){
 Poligono operator /(const Poligono& pol, const Punto& p){
 Punto test(0,0);
 Base aux;
-    if(p==test && pol.size()>2)return pol;
-for(unsigned int i=0; i<pol.size();++i){
+    if(p==test && pol.l.size()>2)return pol;
+for(unsigned int i=0; i<pol.l.size();++i){
     aux.add(*pol.l[i] / p);
 }
 Poligono aus(aux);
@@ -196,7 +196,7 @@ Poligono operator /(const Poligono& pol, const Segmento& s){
 Base aux;
 int dist = s.lunghezza();
 if(dist==0)return pol;
-for(unsigned int i=0; i<pol.size();++i){
+for(unsigned int i=0; i<pol.l.size();++i){
     Punto x(pol.l[i]->get_x()/dist,pol.l[i]->get_y()/dist);
     aux.add(x);
 }

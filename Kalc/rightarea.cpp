@@ -95,6 +95,7 @@ connect(diff,SIGNAL(clicked(bool)),this,SLOT(diffPress()));
 connect(molt,SIGNAL(clicked(bool)),this,SLOT(moltPress()));
 connect(div,SIGNAL(clicked(bool)),this,SLOT(divPress()));
 connect(Save,SIGNAL(clicked(bool)),this,SLOT(savePress()));
+connect(trasla,SIGNAL(clicked(bool)),this,SLOT(traslaPress()));
 connect(this,SIGNAL(AddItem()),this,SLOT(ClearPress()));
 
 }
@@ -161,4 +162,8 @@ void RightArea::divPress(){
 void RightArea::savePress(){
 control->newObject();
 emit AddItem();
+}
+
+void RightArea::traslaPress(){
+//control->Trasla();
 }

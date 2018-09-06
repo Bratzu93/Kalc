@@ -24,7 +24,7 @@ public:
     void newSegm(const Punto& first, const Punto& second);
     void newPunto(double x, double y);
     void newPoligono();
- //   void newPoligono(const Poligono&);
+    void newPoligono(const Poligono&);
     void newObject();
     std::string stampa(Object* p)const;
     std::string stampaPunto(const Punto& p)const;
@@ -38,10 +38,12 @@ public:
     void setOp2(int);
     std::string stampaOp1()const;
     std::string stampaOp2()const;
+    std::string stampaResult()const;
     std::string Somma();
     std::string Differenza();
     std::string Moltiplicazione();
     std::string Divisione();
+    // aggiungere trasla con int destra int basso
 };
 
 #endif // CONTROLLER_H
