@@ -56,8 +56,17 @@ void newPoligono::AddtoPoligono(){
 }
 
 void newPoligono::save_item(){
-    control->newPoligono();
-    list->clear();
-    crea->setEnabled(false);
-    emit _salva();
+    try{control->newPoligono();}
+        catch(Poligono_con_meno_di_3_punti){
+            QMessageBox* errorMsg= new QMessageBox();
+            errorMsg->setInformativeText(QString(tr("Poligono con meno di 3 punti")));
+            errorMsg->exec();
+        }catch(Punti_allineati){
+            QMessageBox* errorMsg= new QMessageBox();
+            errorMsg->setInformativeText(QString(tr("Errore!!! i punti sono allineati")));
+            errorMsg->exec();
+        }
+        list->clear();
+        crea->setEnabled(false);
+        emit _salva();
 }

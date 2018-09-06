@@ -91,7 +91,7 @@ void Controller::newObject(){
     if(p) newPunto(p->get_x(),p->get_y());
     else if(s) newSegm(s->get_firstPoint(),s->get_secondPoint());
     else if(poli) {
-        for(unsigned int i=0; i<poli->get_vect().size();++i)
+        for(unsigned int i=0; i<poli->size();++i)
             AddtoPol(poli->PointfromPoligon(i));
         newPoligono();
     }

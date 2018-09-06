@@ -74,7 +74,15 @@ void Base::clear(){
 vector<Punto*> Base::convex_hull(Base &P){
 
     double n = P.v.size(), k = 0;
-        if (n < 3) return std::vector<Punto*>() ;
+
+    bool allineati=true;
+//        if (n < 3) throw Poligono_con_meno_di_3_punti();
+        for(int i=0;i<n && allineati;++i){
+        if(Punto::angolo(P.v[0],P.v[1],P.v[i]))
+            allineati=false;
+        }
+        if(allineati) throw Punti_allineati();
+
         vector<Punto*> H(2*n);
         sort(P.v.begin(), P.v.end());
          for (double i = 0; i < n; ++i) {

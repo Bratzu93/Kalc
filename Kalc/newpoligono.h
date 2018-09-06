@@ -9,6 +9,7 @@
 #include<QGroupBox>
 #include<QPushButton>
 #include<QLineEdit>
+#include <QMessageBox>
 #include "controller.h"
 
 

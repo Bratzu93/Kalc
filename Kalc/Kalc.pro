@@ -54,3 +54,4 @@ HEADERS += \
     newsegmento.h \
     newpoligono.h \
     dettagli.h \
+    model/error.h
