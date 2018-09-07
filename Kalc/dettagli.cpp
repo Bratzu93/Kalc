@@ -67,7 +67,7 @@ void Dettagli::DettagliPunto(const Punto& point){
         painter->drawLine(100, 0, 100, 200);
         painter->drawLine(0,100,200,100);
         painter->setPen(QPen(Qt::black, 5, Qt::DashDotLine, Qt::RoundCap));
-        painter->drawPoint(100+(point.get_x()*5),100-(point.get_y()*5));
+        painter->drawPoint(100+(point.get_x()*3),100-(point.get_y()*3));
         painter->end();
         l->setPicture(*pi);
         l->setMaximumHeight(200);
@@ -124,7 +124,7 @@ void Dettagli::DettagliSegmento(const Segmento& s ){
     painter->drawLine(0,100,200,100);
     painter->setPen(QPen(Qt::black, 3));
 
-    painter->drawLine(100+(s.get_firstPoint().get_x()*5),100-(s.get_firstPoint().get_y()*5),100+(s.get_secondPoint().get_x()*5),100-(s.get_secondPoint().get_y()*5));
+    painter->drawLine(100+(s.get_firstPoint().get_x()*3),100-(s.get_firstPoint().get_y()*3),100+(s.get_secondPoint().get_x()*3),100-(s.get_secondPoint().get_y()*3));
     painter->end();
     l->setPicture(*pi);
     l->setMaximumHeight(200);
@@ -196,9 +196,9 @@ void Dettagli::DettagliPoligono(const Poligono &pol){
     painter->setPen(QPen(Qt::black, 3));
     unsigned int dim = pol.get_vect().size();
     for(unsigned int i =1; i<dim;++i){
-    painter->drawLine(100+(pol.PointfromPoligon(i-1).get_x()*5),100-(pol.PointfromPoligon(i-1).get_y()*5),100+(pol.PointfromPoligon(i).get_x()*5),100-(pol.PointfromPoligon(i).get_y()*5));
+    painter->drawLine(100+(pol.PointfromPoligon(i-1).get_x()*3),100-(pol.PointfromPoligon(i-1).get_y()*3),100+(pol.PointfromPoligon(i).get_x()*3),100-(pol.PointfromPoligon(i).get_y()*3));
     }
-    painter->drawLine(100+(pol.PointfromPoligon(dim-1).get_x()*5),100-(pol.PointfromPoligon(dim-1).get_y()*5),100+(pol.PointfromPoligon(0).get_x()*5),100-(pol.PointfromPoligon(0).get_y()*5));
+    painter->drawLine(100+(pol.PointfromPoligon(dim-1).get_x()*3),100-(pol.PointfromPoligon(dim-1).get_y()*3),100+(pol.PointfromPoligon(0).get_x()*3),100-(pol.PointfromPoligon(0).get_y()*3));
     painter->end();
     l->setPicture(*pi);
     l->setMaximumHeight(200);

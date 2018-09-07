@@ -167,8 +167,18 @@ risultato->setText(QString::fromStdString(control->Somma()));
 Save->setEnabled(true);
 }
 void RightArea::diffPress(){
+    try{
     risultato->setText(QString::fromStdString(control->Differenza()));
     Save->setEnabled(true);
+    }catch(Punti_allineati){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("I due poligoni sottratti non formano un poligono")));
+        errorMsg->exec();
+    }catch(Poligono_con_meno_di_3_punti){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("I due poligoni sottratti non formano un poligono")));
+        errorMsg->exec();
+    }
 }
 
 void RightArea::moltPress(){
@@ -182,8 +192,19 @@ void RightArea::divPress(){
 
 
 void RightArea::savePress(){
-control->newObject();
-emit AddItem();
+try{
+        control->newObject();
+        emit AddItem();
+    }
+    catch(Poligono_con_meno_di_3_punti){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("Poligono con meno di 3 punti")));
+        errorMsg->exec();
+    }catch(Punti_allineati){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("Errore!!! i punti sono allineati")));
+        errorMsg->exec();
+    }
 }
 
 void RightArea::traslaPress(){

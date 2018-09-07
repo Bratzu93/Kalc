@@ -12,10 +12,9 @@ class Poligono :public Base
 {
 private:
     vector<Punto*> l;
-
 public:
     Poligono(const Poligono&);
-    Poligono(Base &);
+    Poligono(const Base &);
     Poligono();
     ~Poligono();
     Poligono& operator=(const Poligono&);

@@ -5,8 +5,10 @@ Base::Base(){
 }
 
 Base::Base(const Base& B){
-    for (double i=0; i<B.v.size(); i++)
-         v.push_back(B.v[i]);
+    for (unsigned int i=0; i<B.v.size(); ++i){
+     Punto x = B.v[i];
+        v.push_back(x);
+    }
 }
 
 Base::~Base(){}
@@ -21,6 +23,13 @@ vector<Punto> Base::get_vect()const{
     return v;
 }
 
+//void Base::set_vect(vector<Punto> B){
+//v.clear();
+//for(unsigned int i=0;i<B.size();++i){
+
+//}
+//}
+
 Base& Base::append_vect(const Base& B){
 v.insert(std::end(v), std::begin(B.v), std::end(B.v));
 return *this;
@@ -28,6 +37,9 @@ return *this;
 
 void Base::add(const Punto& p){
     v.push_back(p);
+}
+void Base::add(Punto* p){
+v.push_back(*p);
 }
 
 
@@ -73,9 +85,10 @@ vector<Punto*> Base::convex_hull(Base &P){
     double n = P.v.size(), k = 0;
 
     bool allineati=true;
-//        if (n < 3) throw Poligono_con_meno_di_3_punti();
-        for(int i=0;i<n && allineati;++i){
-        if(Punto::angolo(P.v[0],P.v[1],P.v[i]))
+        if (n < 3) throw Poligono_con_meno_di_3_punti();
+        for(int i=0;i<n && allineati;++i)
+            for(int k=0;k<n && allineati;++k){
+        if(Punto::angolo(P.v[0],P.v[i],P.v[k]))
             allineati=false;
         }
         if(allineati) throw Punti_allineati();

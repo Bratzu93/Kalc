@@ -4,6 +4,7 @@ Controller::Controller(){
     op1=nullptr;
     op2=nullptr;
     res=nullptr;
+    base.clear();
 }
 
 void Controller::setOp1(int i){
@@ -21,10 +22,6 @@ std::string Controller::stampaOp2()const{
 }
 std::string Controller::stampaResult()const{
     return stampa(res);
-}
-void Controller::newPunto(double x, double y) {
-    Punto* l = new Punto(x,y);
-    Controller::list.push_back(l);
 }
 
 std::string Controller::stampa(Object *p) const{
@@ -66,7 +63,9 @@ void Controller::newSegm(const Punto& first, const Punto& second) {
     Segmento* l = new Segmento(first,second);
     Controller::list.push_back(l);
 }
-
+void Controller::clearBase(){
+    base.clear();
+}
 
 int Controller::getVectorSize()const{
 return list.size();
@@ -77,20 +76,23 @@ return typeid(*(list[i])).name();
 }
 
 bool Controller::AddtoPol(const Punto& p){
-base.add(p);
+    base.add(new Punto(p));
 if(base.get_vect().size()>2)
     return true;
 else return false;
 }
+void Controller::newPunto(double x, double y) {
+    Punto* l = new Punto(x,y);
+    Controller::list.push_back(l);
+}
 
 void Controller::newPoligono(){
-Base* b = new Base(base);
-Poligono* pol = new Poligono(*b);
-Controller::list.push_back(pol);
-base.clear();
+        Controller::list.push_back(new Poligono(base));
+        base.clear();
 }
 
 void Controller::newObject(){
+
     Punto* p = dynamic_cast<Punto*>(res);
     Segmento* s = dynamic_cast<Segmento*>(res);
     Poligono* poli = dynamic_cast<Poligono*>(res);
@@ -100,7 +102,8 @@ void Controller::newObject(){
     else if(poli) {
         for(unsigned int i=0; i<poli->get_vect().size();++i)
             AddtoPol(poli->PointfromPoligon(i));
-        newPoligono();
+        try{newPoligono();}catch(Punti_allineati){}
+        catch(Poligono_con_meno_di_3_punti){}
     }
 }
 

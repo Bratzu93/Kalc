@@ -1,11 +1,13 @@
 #include "Poligono.h"
 
-Poligono::Poligono(Base& B):Base(B){
-l = Base::convex_hull(B);
+Poligono::Poligono(const Base& B):Base(B){
+    l = Base::convex_hull(*this);
 }
 Poligono::Poligono(){}
 
-Poligono::Poligono(const Poligono& p):Base(p),l(p.l){}
+Poligono::Poligono(const Poligono& p):Base(p),l(p.l){
+
+}
 
 Poligono& Poligono::operator=(const Poligono& p){
     if(l==p.l)
@@ -112,10 +114,16 @@ Poligono operator-(const Poligono& pol1, const Poligono& pol2){
     Base aux;
     if(pol1.l.size()>pol2.l.size()){
         for(unsigned int i=0; i<pol2.l.size();++i)
+            if(*pol1.l[i] != *pol2.l[i])
             aux.add(*pol1.l[i] - *pol2.l[i]);
+        for(unsigned int i=pol2.l.size();i<pol1.l.size();++i)
+            aux.add(*pol1.l[i]);
     }else{
         for(unsigned int i=0; i<pol1.l.size();++i)
+            if(*pol1.l[i] != *pol2.l[i])
             aux.add(*pol2.l[i] - *pol1.l[i]);
+        for(unsigned int i=pol1.l.size();i<pol2.l.size();++i)
+            aux.add(*pol2.l[i]);
     }
     Poligono aus(aux);
     return aus;
@@ -143,7 +151,7 @@ Poligono operator*(const Poligono& pol1, const Poligono& pol2){
             aux.add(*pol1.l[i] * *pol2.l[i]);
     }else{
         for(unsigned int i=0; i<pol1.l.size();++i)
-            aux.add(*pol2.l[i] * *pol1.l[i]);
+            aux.add((*pol2.l[i]) * (*pol1.l[i]));
     }
     Poligono aus(aux);
     return aus;

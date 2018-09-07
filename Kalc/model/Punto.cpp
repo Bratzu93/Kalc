@@ -66,7 +66,7 @@ void Punto::trasla(const double& _x, const double& _y){
 }
 
 void Punto::stampa() const{
-    std::cout<<*this;
+    std::cout<<*this<<std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Punto& p){

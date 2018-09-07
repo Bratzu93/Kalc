@@ -24,16 +24,16 @@ public:
     void newSegm(const Punto& first, const Punto& second);
     void newPunto(double x, double y);
     void newPoligono();
-    void newPoligono(const Poligono&);
+    bool AddtoPol(const Punto&);
     void newObject();
     std::string stampa(Object* p)const;
     std::string stampaPunto(const Punto& p)const;
     std::string stampaSegmento(const Segmento& p)const;
     std::string stampaPoligono(const Poligono& p)const;
-    int getVectorSize()const;
     std::string getTypeElem(int i)const;
-    bool AddtoPol(const Punto&);
     Object* getElement(int i)const;
+    int getVectorSize()const;
+    void clearBase();
     void setOp1(int);
     void setOp2(int);
     std::string stampaOp1()const;
@@ -44,9 +44,9 @@ public:
     std::string Differenza();
     std::string Moltiplicazione();
     std::string Divisione();
-    void Trasla(const double&,const double&);
     std::string Punto_piu_vicino();
     std::string Interno();
+    void Trasla(const double&,const double&);
     double SommaSegmenti();
 };
 

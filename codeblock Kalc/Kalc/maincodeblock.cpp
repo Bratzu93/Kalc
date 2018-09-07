@@ -21,17 +21,30 @@ b.add(p);
 b.add(p1);
 b.add(p2);
 b.add(p3);
+Poligono pol1(b);
 
 b.stampa();
+cout<<"stampata la base"<<endl;
+pol1.Base::stampa();
 cout<<endl;
-b.trasla(2,2);
-b.stampa();
-cout<<endl;
-Poligono pol1(b);
 pol1.stampa();
-cout<<endl;
-pol1.trasla(3,3);
-pol1.stampa();
+/*
+control->newPunto(0,5);
+control->AddtoPol(p);
+control->AddtoPol(p1);
+control->AddtoPol(p2);
+control->AddtoPol(p3);
+control->newPoligono();
+control->setOp1(0);
+control->setOp2(1);
+control->Differenza();
+control->newObject();
+control->setOp2(2);
+control->Differenza();
+control->newObject();
+//cout<<control->getElement(0);
+cout<<control->stampa(control->getElement(2));
+*/
 /*
 control->newPunto(p1.get_x(),p1.get_y());
 control->newSegm(p,p1);
