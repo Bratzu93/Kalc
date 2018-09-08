@@ -26,7 +26,7 @@ Punto Segmento::Punto_medio()const{
 return Punto(x,y);
 }
 double Segmento::coefficenteAngolare()const{
-    if(p2.get_x()-p1.get_x()==0)return 10000000;
+    if(p2.get_x()-p1.get_x()==0) throw SegmentoVerticale();
     else return (p2.get_y()-p1.get_y())/(p2.get_x()-p1.get_x());
 }
 
@@ -146,4 +146,7 @@ bool Segmento::operator>(const Segmento& s1) const{
 
 bool Segmento::operator==(const Segmento& s) const{
 return (p1==s.p1 && p2==s.p2);
+}
+bool Segmento::operator!=(const Segmento& s)const{
+	return (p1!=s.p1 || p2!=s.p2);
 }

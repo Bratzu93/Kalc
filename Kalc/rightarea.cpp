@@ -172,22 +172,42 @@ void RightArea::diffPress(){
     Save->setEnabled(true);
     }catch(Punti_allineati){
         QMessageBox* errorMsg= new QMessageBox();
-        errorMsg->setInformativeText(QString(tr("I due poligoni sottratti non formano un poligono")));
+        errorMsg->setInformativeText(QString(tr("Poligono con meno di 3 punti")));
         errorMsg->exec();
     }catch(Poligono_con_meno_di_3_punti){
         QMessageBox* errorMsg= new QMessageBox();
-        errorMsg->setInformativeText(QString(tr("I due poligoni sottratti non formano un poligono")));
+        errorMsg->setInformativeText(QString(tr("Poligono con meno di 3 punti")));
         errorMsg->exec();
     }
 }
 
 void RightArea::moltPress(){
+    try{
     risultato->setText(QString::fromStdString(control->Moltiplicazione()));
     Save->setEnabled(true);
+    }catch(Punti_allineati){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("Poligono con meno di 3 punti")));
+        errorMsg->exec();
+    }catch(Poligono_con_meno_di_3_punti){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("Poligono con meno di 3 punti")));
+        errorMsg->exec();
+    }
 }
 void RightArea::divPress(){
+    try{
     risultato->setText(QString::fromStdString(control->Divisione()));
     Save->setEnabled(true);
+    }catch(Punti_allineati){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("Poligono con meno di 3 punti")));
+        errorMsg->exec();
+    }catch(Poligono_con_meno_di_3_punti){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("Poligono con meno di 3 punti")));
+        errorMsg->exec();
+    }
 }
 
 
@@ -250,7 +270,7 @@ void RightArea::internoPress(){
     try{risultato->setText(QString::fromStdString(control->Interno()));}
     catch(PoligonoInternoExep){
         QMessageBox* errorMsg= new QMessageBox();
-        errorMsg->setInformativeText(QString(tr("Il primo operando deve essere un Punto e il secondo un Poligono")));
+        errorMsg->setInformativeText(QString(tr("Gli opernadi devono essere un punto e un poligono")));
         errorMsg->exec();
     }
 }

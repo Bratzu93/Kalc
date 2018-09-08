@@ -23,13 +23,6 @@ vector<Punto> Base::get_vect()const{
     return v;
 }
 
-//void Base::set_vect(vector<Punto> B){
-//v.clear();
-//for(unsigned int i=0;i<B.size();++i){
-
-//}
-//}
-
 Base& Base::append_vect(const Base& B){
 v.insert(std::end(v), std::begin(B.v), std::end(B.v));
 return *this;
@@ -50,7 +43,6 @@ void Base::remove(const Punto& p){
             cit--;
         }
     }
-
 }
 
 void Base::trasla_asseX(const double& _x){
@@ -99,12 +91,10 @@ vector<Punto*> Base::convex_hull(Base &P){
                  while (k >= 2 && Punto::angolo(*(H[k-2]), *(H[k-1]), P.v[i]) <= 0) k--;
                  H[k++] = &P.v[i];
              }
-
-             // Build upper hull
-             for (int i = n-1, t = k+1; i > 0; --i) {
-                 while (k >= t && Punto::angolo(*(H[k-2]), *(H[k-1]), P.v[i-1]) <= 0) k--;
-                 H[k++] = &P.v[i-1];
-             }
+         for (int i = n-1, t = k+1; i > 0; --i) {
+             while (k >= t && Punto::angolo(*(H[k-2]), *(H[k-1]), P.v[i-1]) <= 0) k--;
+             H[k++] = &P.v[i-1];
+         }
              H.resize(k-1);
              return H;
 }

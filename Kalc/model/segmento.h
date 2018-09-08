@@ -17,11 +17,11 @@ public:
     double lunghezza()const;
     double coefficenteAngolare()const;
     void Scambia();
-    void stampa()const;
+    virtual void stampa()const;
     bool operator<(const Segmento&) const;
     bool operator>(const Segmento&) const;
     bool operator==(const Segmento&) const;
-
+	bool operator!=(const Segmento&) const;
     friend Segmento operator +(const Segmento&,const Segmento&);
     friend Segmento operator -(const Segmento&,const Segmento&);
     friend Segmento operator *(const Segmento&,const Segmento&);

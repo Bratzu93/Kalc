@@ -75,8 +75,9 @@ std::string Controller::getTypeElem(int i)const{
 return typeid(*(list[i])).name();
 }
 
-bool Controller::AddtoPol(const Punto& p){
-    base.add(new Punto(p));
+bool Controller::AddtoPol(Punto p){
+    Punto* point = new Punto(p);
+    base.add(point);
 if(base.get_vect().size()>2)
     return true;
 else return false;
@@ -289,6 +290,11 @@ std::string Controller::Interno(){
     if(dynamic_cast<Poligono*>(op2) && dynamic_cast<Punto*>(op1)){
         Punto* point = static_cast<Punto*>(op1);
         Poligono* polygon = static_cast<Poligono*>(op2);
+        if(polygon->interno(*point)) return std::string("il punto è interno al poligono");
+            else return std::string("il punto è esterno al poligono");
+    }else if(dynamic_cast<Poligono*>(op1) && dynamic_cast<Punto*>(op2)){
+        Punto* point = static_cast<Punto*>(op2);
+        Poligono* polygon = static_cast<Poligono*>(op1);
         if(polygon->interno(*point)) return std::string("il punto è interno al poligono");
             else return std::string("il punto è esterno al poligono");
     }

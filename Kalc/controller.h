@@ -24,7 +24,7 @@ public:
     void newSegm(const Punto& first, const Punto& second);
     void newPunto(double x, double y);
     void newPoligono();
-    bool AddtoPol(const Punto&);
+    bool AddtoPol(Punto);
     void newObject();
     std::string stampa(Object* p)const;
     std::string stampaPunto(const Punto& p)const;

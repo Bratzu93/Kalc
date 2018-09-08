@@ -8,4 +8,6 @@ class Punti_allineati{};
 class PuntoExep{};
 
 class PoligonoInternoExep{};
+
+class SegmentoVerticale{};
 #endif // ERROR_H
