@@ -16,6 +16,7 @@ public:
     Base(const Base&);
     Base& operator=(const Base&);
     vector<Punto> get_vect()const;
+    void set_vect(Base);
     Base& append_vect(const Base&);
     void add(const Punto &);
     void add(Punto*);

@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1536511923 source:c:\users\bratzu\desktop\kalc\kalc\model\base.cpp
+1536517000 source:c:\users\bratzu\desktop\kalc\kalc\model\base.cpp
 	"base.h"
 
-1536509229 c:\users\bratzu\desktop\kalc\kalc\model\base.h
+1536517008 c:\users\bratzu\desktop\kalc\kalc\model\base.h
 	"punto.h"
 	<vector>
 	<algorithm>
@@ -32,10 +32,10 @@
 	<vector>
 	<sstream>
 
-1536509314 source:c:\users\bratzu\desktop\kalc\kalc\model\poligono.cpp
+1536516171 source:c:\users\bratzu\desktop\kalc\kalc\model\poligono.cpp
 	"poligono.h"
 
-1536509319 source:c:\users\bratzu\desktop\kalc\kalc\model\punto.cpp
+1536516227 source:c:\users\bratzu\desktop\kalc\kalc\model\punto.cpp
 	"punto.h"
 
 1536509323 source:c:\users\bratzu\desktop\kalc\kalc\model\segmento.cpp
@@ -44,7 +44,7 @@
 1536509247 c:\users\bratzu\desktop\kalc\kalc\model\segmento.h
 	"punto.h"
 
-1536490431 source:c:\users\bratzu\desktop\kalc\codeblock kalc\kalc\maincodeblock.cpp
+1536515722 source:c:\users\bratzu\desktop\kalc\codeblock kalc\kalc\maincodeblock.cpp
 	"../../Kalc/model/Punto.h"
 	"../../Kalc/model/base.h"
 	"../../Kalc/model/Poligono.h"
@@ -53,7 +53,7 @@
 	"../../Kalc/controller.h"
 	<iostream>
 
-1536501612 source:c:\users\bratzu\desktop\kalc\kalc\controller.cpp
+1536513406 source:c:\users\bratzu\desktop\kalc\kalc\controller.cpp
 	"controller.h"
 
 1536509253 c:\users\bratzu\desktop\kalc\kalc\controller.h
@@ -65,5 +65,5 @@
 	<typeinfo>
 	<sstream>
 
-1536508744 c:\users\bratzu\desktop\kalc\kalc\model\error.h
+1536513188 c:\users\bratzu\desktop\kalc\kalc\model\error.h
 

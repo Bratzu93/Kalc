@@ -26,13 +26,16 @@ Base b2;
 b2.add(p5);
 b2.add(p6);
 b2.add(p3);
+Base b3(b);
 
 Poligono pol1(b);
-Poligono pol2(pol1);
-pol2.trasla(6);
-Poligono pol3(b2);
 pol1.stampa();
+cout<<endl;
+Poligono pol2(pol1);
+Poligono pol3(b2);
+pol3=pol1;
 pol3.stampa();
+
 /*
 control->newPunto(0,5);
 control->AddtoPol(p);

@@ -6,11 +6,13 @@ Base::Base(){
 
 Base::Base(const Base& B){
     for (unsigned int i=0; i<B.v.size(); ++i){
-     Punto* x = new Punto(B.v[i]);
-        v.push_back(*x);
+     Punto x = B.v[i];
+        v.push_back(x);
     }
 }
-
+void Base::set_vect(Base v1){
+v=v1.v;
+}
 Base::~Base(){}
 
 Base& Base::operator=(const Base& B){

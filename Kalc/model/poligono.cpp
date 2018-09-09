@@ -12,9 +12,11 @@ l=Base::convex_hull(*this);
 Poligono& Poligono::operator=(const Poligono& p){
     if(l==p.l)
         return *this;
-    else
-    l=p.l;
-    return *this;
+    else{
+        set_vect(p);
+        l=convex_hull(*this);
+        return *this;
+    }
 }
 
 vector<Punto*> Poligono::get_vect()const{
