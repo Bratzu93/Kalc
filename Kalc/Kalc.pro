@@ -27,7 +27,7 @@ SOURCES += \
         main.cpp \
     kalc.cpp \
     model/base.cpp \
-    model/Punto.cpp \
+    model/punto.cpp \
     model/poligono.cpp \
     model/segmento.cpp \
     controller.cpp \
@@ -42,7 +42,7 @@ SOURCES += \
 HEADERS += \
     kalc.h \
     model/base.h \
-    model/Punto.h \
+    model/punto.h \
     model/poligono.h \
     model/object.h \
     model/segmento.h \
