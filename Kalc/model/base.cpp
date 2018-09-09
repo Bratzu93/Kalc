@@ -6,8 +6,8 @@ Base::Base(){
 
 Base::Base(const Base& B){
     for (unsigned int i=0; i<B.v.size(); ++i){
-     Punto x = B.v[i];
-        v.push_back(x);
+     Punto* x = new Punto(B.v[i]);
+        v.push_back(*x);
     }
 }
 

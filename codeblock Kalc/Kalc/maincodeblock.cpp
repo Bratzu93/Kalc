@@ -22,24 +22,17 @@ b.add(p);
 b.add(p1);
 b.add(p2);
 b.add(p3);
-Poligono pol1(b);
-vector<Object*> v;
+Base b2;
+b2.add(p5);
+b2.add(p6);
+b2.add(p3);
 
+Poligono pol1(b);
 Poligono pol2(pol1);
 pol2.trasla(6);
-v.push_back(&p);
-v.push_back(&p1);
-v.push_back(&p2);
-v.push_back(&p3);
-v.push_back(&p4);
-v.push_back(&pol1);
-v.push_back(&pol2);
-
-for(int i=0;i<v.size();++i){
-    (*v[i]).stampa();
-    cout<<endl;
-}
-
+Poligono pol3(b2);
+pol1.stampa();
+pol3.stampa();
 /*
 control->newPunto(0,5);
 control->AddtoPol(p);

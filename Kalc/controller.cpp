@@ -250,7 +250,10 @@ std::string Controller::Punto_piu_vicino(){
     Punto* point;
     if(!(dynamic_cast<Punto*>(op1))) throw PuntoExep();
     else point = static_cast<Punto*>(op1);
-
+    if(dynamic_cast<Punto*>(op2)){
+        res=op1;
+        return stampa(res);
+    }
         if(dynamic_cast<Segmento*>(op2)){
        punto = (static_cast<Segmento*>(op2))->Punto_piu_vicino(*point);
         res=&punto;

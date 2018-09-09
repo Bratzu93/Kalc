@@ -2,7 +2,7 @@ INPUT(
 ./release\main.o
 ./release\kalc.o
 ./release\base.o
-./release\Punto.o
+./release\punto.o
 ./release\poligono.o
 ./release\segmento.o
 ./release\controller.o

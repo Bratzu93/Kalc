@@ -2,7 +2,7 @@ INPUT(
 ./debug\main.o
 ./debug\kalc.o
 ./debug\base.o
-./debug\Punto.o
+./debug\punto.o
 ./debug\poligono.o
 ./debug\segmento.o
 ./debug\controller.o

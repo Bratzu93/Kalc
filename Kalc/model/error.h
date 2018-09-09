@@ -7,6 +7,8 @@ class Punti_allineati{};
 
 class PuntoExep{};
 
+class PuntoPuntoExep{};
+
 class PoligonoInternoExep{};
 
 class SegmentoVerticale{};
