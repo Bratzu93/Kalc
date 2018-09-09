@@ -9,6 +9,14 @@ void Segmento::stampa()const{
     std::cout<<p1<<p2;
 }
 
+std::string Segmento::OutPunti()const{
+        std::ostringstream strs;
+        strs << p1<<p2;
+        std::string str = strs.str();
+        return str;
+}
+
+
 void Segmento::Scambia(){
     Punto point=p1;
     p1=p2;
@@ -129,8 +137,7 @@ Segmento operator *(const Segmento& s1,const Segmento& s2){
 
 Segmento operator /(const Segmento& s1,const Segmento& s2){
     double dist = s2.lunghezza();
-    if(dist==0)
-        return s1;
+    if(dist==0) throw DivisionePerZero();
     Punto point((s1.p2).operator /(dist));
     Segmento temporaneo(s1.p1,point);
     return temporaneo;

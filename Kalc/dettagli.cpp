@@ -176,7 +176,7 @@ void Dettagli::DettagliPoligono(const Poligono &pol){
     _ybis= new QLabel(tr("equilatero:"));
     xbis = new QLineEdit;
     ybis = new QLineEdit;
-    x->setText(QString::fromStdString(control->stampaPoligono(pol)));
+    x->setText(QString::fromStdString(control->stampa(&pol)));
     y->setText(QString::number(pol.area()));
     xbis->setText(QString::number(pol.perimetro()));
     ybis->setText(QString::fromStdString(control->IsEquilatero(pol)));

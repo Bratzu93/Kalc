@@ -68,7 +68,12 @@ void Punto::trasla(const double& _x, const double& _y){
 void Punto::stampa() const{
     std::cout<<*this<<std::endl;
 }
-
+std::string Punto::OutPunti()const{
+    std::ostringstream strs;
+    strs << "( " << x << " , " << y << " )";
+    std::string str = strs.str();
+    return str;
+}
 std::ostream& operator<<(std::ostream& os, const Punto& p){
     os<<"("<<p.x<<","<<p.y<<")";
     return os;
@@ -93,7 +98,7 @@ Punto operator*(const Punto& p1, const Punto& p2){
 
 Punto Punto::operator/(const double& p)const{
     Punto aux(0,0);
-    if(p==0)return *this;
+    if(p==0) throw DivisionePerZero();;
     aux.x = x/p;
     aux.y = y/p;
     return aux;

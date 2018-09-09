@@ -24,34 +24,8 @@ std::string Controller::stampaResult()const{
     return stampa(res);
 }
 
-std::string Controller::stampa(Object *p) const{
-    if(dynamic_cast<Punto*>(p)){
-       Punto* point = static_cast<Punto*>(p);
-       return stampaPunto(*point);
-    } else if(dynamic_cast<Segmento*>(p)){
-    Segmento* segm = static_cast<Segmento*>(p);
-    return stampaSegmento(*segm);
-    }else{
-     Poligono* pol = static_cast<Poligono*>(p);
-     return stampaPoligono(*pol);
-    }
-}
-std::string Controller::stampaPunto(const Punto& p)const{
-    std::ostringstream strs;
-    strs << "( " << p.get_x() << " , " << p.get_y() << " )";
-    std::string str = strs.str();
-    return str;
-}
-std::string Controller::stampaSegmento(const Segmento& p)const{
-    std::ostringstream strs;
-    strs << "( " << p.get_firstPoint().get_x() << " , " << p.get_firstPoint().get_y() << " ) , ("
-         << p.get_secondPoint().get_x()<<" , "<<p.get_secondPoint().get_y()<<" )";
-    std::string str = strs.str();
-    return str;
-}
-
-std::string Controller::stampaPoligono(const Poligono& p)const{
-return p.OutPunti();
+std::string Controller::stampa(const Object *p) const{
+    return p->OutPunti();
 }
 
 std::string Controller::IsEquilatero(const Poligono& pol)const{
@@ -59,10 +33,6 @@ if(pol.equilatero()) return std::string("Poligono equilatero");
 else return std::string("Poligono non equilatero");
 }
 
-void Controller::newSegm(const Punto& first, const Punto& second) {
-    Segmento* l = new Segmento(first,second);
-    Controller::list.push_back(l);
-}
 void Controller::clearBase(){
     base.clear();
 }
@@ -82,8 +52,14 @@ if(base.get_vect().size()>2)
     return true;
 else return false;
 }
+
 void Controller::newPunto(double x, double y) {
     Punto* l = new Punto(x,y);
+    Controller::list.push_back(l);
+}
+
+void Controller::newSegm(const Punto& first, const Punto& second) {
+    Segmento* l = new Segmento(first,second);
     Controller::list.push_back(l);
 }
 
@@ -93,7 +69,6 @@ void Controller::newPoligono(){
 }
 
 void Controller::newObject(){
-
     Punto* p = dynamic_cast<Punto*>(res);
     Segmento* s = dynamic_cast<Segmento*>(res);
     Poligono* poli = dynamic_cast<Poligono*>(res);

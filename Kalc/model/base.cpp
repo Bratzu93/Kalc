@@ -68,6 +68,15 @@ void Base::stampa()const{
         (*cit).stampa();
     }
 }
+
+std::string Base::OutPunti()const{
+    std::ostringstream strs;
+    for(auto cit=v.begin();cit!=v.end();++cit)
+    strs << *cit;
+    std::string str = strs.str();
+    return str;
+}
+
 void Base::clear(){
     v.clear();
 }

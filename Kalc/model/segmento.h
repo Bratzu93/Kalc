@@ -18,6 +18,8 @@ public:
     double coefficenteAngolare()const;
     void Scambia();
     virtual void stampa()const;
+    std::string OutPunti()const;
+
     bool operator<(const Segmento&) const;
     bool operator>(const Segmento&) const;
     bool operator==(const Segmento&) const;

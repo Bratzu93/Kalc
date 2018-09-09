@@ -43,7 +43,7 @@ public:
     Dettagli(Controller* controller,QWidget *parent = nullptr);
     void DettagliPunto(const Punto& point);
     void DettagliSegmento(const Segmento& s);
-    void DettagliPoligono(const Poligono& pol);
+    void DettagliPoligono(const Poligono &pol);
 public slots:
     void AggiornaDettagli(int i);
 signals:

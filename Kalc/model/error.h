@@ -10,4 +10,7 @@ class PuntoExep{};
 class PoligonoInternoExep{};
 
 class SegmentoVerticale{};
+
+class DivisionePerZero{}
+
 #endif // ERROR_H

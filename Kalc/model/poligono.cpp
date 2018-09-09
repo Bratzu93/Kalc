@@ -209,7 +209,7 @@ return *aus;
 Poligono operator /(const Poligono& pol, const Segmento& s){
 Base aux;
 int dist = s.lunghezza();
-if(dist==0)return pol;
+if(dist==0) throw DivisionePerZero();
 for(unsigned int i=0; i<pol.l.size();++i){
     Punto x(pol.l[i]->get_x()/dist,pol.l[i]->get_y()/dist);
     aux.add(x);

@@ -28,6 +28,7 @@ public:
     //cammino minimo
     static vector<Punto *> convex_hull(Base &P);
     virtual void stampa()const;
+    std::string OutPunti()const;
 
 };
 

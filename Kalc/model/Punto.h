@@ -29,6 +29,7 @@ public:
     double get_y()const;
     // altre funzioni
     virtual void stampa()const;
+    std::string OutPunti()const;
     static double distanza(const Punto& first_point, const Punto& second_point);
     void trasla_ascissa(const double& _x=0);
     void trasla_ordinata(const double& _y=0);

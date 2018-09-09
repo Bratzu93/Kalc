@@ -26,7 +26,7 @@ public:
     void newPoligono();
     bool AddtoPol(Punto);
     void newObject();
-    std::string stampa(Object* p)const;
+    std::string stampa(const Object *p)const;
     std::string stampaPunto(const Punto& p)const;
     std::string stampaSegmento(const Segmento& p)const;
     std::string stampaPoligono(const Poligono& p)const;

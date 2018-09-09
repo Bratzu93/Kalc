@@ -207,6 +207,10 @@ void RightArea::divPress(){
         QMessageBox* errorMsg= new QMessageBox();
         errorMsg->setInformativeText(QString(tr("Poligono con meno di 3 punti")));
         errorMsg->exec();
+    }catch(DivisionePerZero){
+        QMessageBox* errorMsg= new QMessageBox();
+        errorMsg->setInformativeText(QString(tr("Divisione per 0")));
+        errorMsg->exec();
     }
 }
 

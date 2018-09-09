@@ -52,7 +52,7 @@ void newPoligono::AddtoPoligono(){
     yLineEditfirst->setText("");
     if(control->AddtoPol(p))
     crea->setEnabled(true);
-    list->addItem(QString::fromStdString(control->stampaPunto(p)));
+    list->addItem(QString::fromStdString(control->stampa(&p)));
 }
 
 void newPoligono::save_item(){
