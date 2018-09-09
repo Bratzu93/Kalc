@@ -1,7 +1,7 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 #include"model/object.h"
-#include"model/Punto.h"
+#include"model/punto.h"
 #include"model/poligono.h"
 #include"model/segmento.h"
 #include"model/base.h"

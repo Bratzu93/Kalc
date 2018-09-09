@@ -11,6 +11,6 @@ class PoligonoInternoExep{};
 
 class SegmentoVerticale{};
 
-class DivisionePerZero{}
+class DivisionePerZero{};
 
 #endif // ERROR_H

@@ -1,6 +1,6 @@
 #ifndef Segmento_H
 #define Segmento_H
-#include"Punto.h"
+#include"punto.h"
 
 class Segmento : public Object
 {

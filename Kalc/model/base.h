@@ -1,6 +1,6 @@
 #ifndef BASE_H
 #define BASE_H
-#include "Punto.h"
+#include "punto.h"
 #include <vector>
 #include<algorithm>
 using std::vector;

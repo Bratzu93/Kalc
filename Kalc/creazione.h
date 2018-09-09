@@ -7,6 +7,7 @@
 #include <QGroupBox>
 #include <QLabel>
 #include <QLineEdit>
+#include <QHBoxLayout>
 #include "controller.h"
 #include "newpoint.h"
 #include "newsegmento.h"

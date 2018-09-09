@@ -1,4 +1,4 @@
-#include "Segmento.h"
+#include "segmento.h"
 
 Segmento::Segmento(const Punto &_p1, const Punto &_p2):p1(_p1),p2(_p2){
     if(p1>p2)

@@ -1,4 +1,4 @@
-#include "Punto.h"
+#include "punto.h"
 
 Punto::Punto(const double& _x, const double& _y):x(_x),y(_y){}
 Punto::Punto(const Punto &p):x(p.x),y(p.y){}

@@ -1,7 +1,7 @@
 #ifndef Poligono_H
 #define Poligono_H
-#include "Punto.h"
-#include "Base.h"
+#include "punto.h"
+#include "base.h"
 #include"segmento.h"
 #include <vector>
 #include <sstream>

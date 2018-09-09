@@ -1,4 +1,4 @@
-#include "Poligono.h"
+#include "poligono.h"
 
 Poligono::Poligono(const Base& B):Base(B){
     l = Base::convex_hull(*this);
