@@ -16,18 +16,30 @@ Punto p3(5,0);
 Punto p4(3,3);
 Punto p5(6,6);
 Punto p6(-8,-8);
+Segmento s(p1,p6);
 Base b;
 b.add(p);
 b.add(p1);
 b.add(p2);
 b.add(p3);
 Poligono pol1(b);
+vector<Object*> v;
 
-b.stampa();
-cout<<"stampata la base"<<endl;
-pol1.Base::stampa();
-cout<<endl;
-pol1.stampa();
+Poligono pol2(pol1);
+pol2.trasla(6);
+v.push_back(&p);
+v.push_back(&p1);
+v.push_back(&p2);
+v.push_back(&p3);
+v.push_back(&p4);
+v.push_back(&pol1);
+v.push_back(&pol2);
+
+for(int i=0;i<v.size();++i){
+    (*v[i]).stampa();
+    cout<<endl;
+}
+
 /*
 control->newPunto(0,5);
 control->AddtoPol(p);

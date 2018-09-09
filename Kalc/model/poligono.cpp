@@ -5,8 +5,8 @@ Poligono::Poligono(const Base& B):Base(B){
 }
 Poligono::Poligono(){}
 
-Poligono::Poligono(const Poligono& p):Base(p),l(p.l){
-
+Poligono::Poligono(const Poligono& p):Base(p){
+l=Base::convex_hull(*this);
 }
 
 Poligono& Poligono::operator=(const Poligono& p){
@@ -42,18 +42,20 @@ void Poligono::stampa()const{
 double Poligono::area()const{
     double area=0;
     double n = l.size();
-    for(int k=0;k<n;k++){
+    for(int k=0;k<n-1;k++){
         area += ((*l[k]).get_x() * (*l[k+1]).get_y()) - ((*l[k]).get_y() * (*l[k+1]).get_x());
     }
+    area+= ((*l[n-1]).get_x() * (*l[0]).get_y()) - ((*l[n-1]).get_y() * (*l[0]).get_x());
     return area/2;
 }
 
 double Poligono::perimetro()const{
     double perimetro=0;
     double n = l.size();
-    for(int k=0;k<n;k++){
+    for(int k=0;k<n-1;k++){
         perimetro +=  Punto::distanza(*l[k],*l[k+1]);
     }
+    perimetro+= Punto::distanza(*l[0],*l[n-1]);
     return perimetro;
 }
 
@@ -90,23 +92,25 @@ return (area()!=p.area());
 }
 
 Poligono operator+(const Poligono& pol1, const Poligono& pol2){
-Poligono aux((const_cast<Poligono&>(pol1)).append_vect(pol2));
-return aux;
+Base aux(pol1);
+aux.append_vect(pol2);
+Poligono* aus = new Poligono(aux);
+return *aus;
 }
 
 Poligono operator +(const Poligono& pol, const Punto& p){
 Base aux(pol);
 aux.add(p);
-Poligono aus(aux);
-return aus;
+Poligono* aus =new Poligono(aux);
+return *aus;
 }
 
 Poligono operator +(const Poligono& pol, const Segmento& s){
 Base aux(pol);
 aux.add(s.get_firstPoint());
 aux.add(s.get_secondPoint());
-Poligono aus(aux);
-return aus;
+Poligono* aus =new Poligono(aux);
+return *aus;
 }
 
 
@@ -125,23 +129,23 @@ Poligono operator-(const Poligono& pol1, const Poligono& pol2){
         for(unsigned int i=pol1.l.size();i<pol2.l.size();++i)
             aux.add(*pol2.l[i]);
     }
-    Poligono aus(aux);
-    return aus;
+    Poligono* aus =new Poligono(aux);
+    return *aus;
 }
 
 Poligono operator -(const Poligono& pol, const Punto& p){
 Base aux(pol);
 aux.remove(p);
-Poligono aus(aux);
-return aus;
+Poligono* aus =new Poligono(aux);
+return *aus;
 }
 
 Poligono operator -(const Poligono& pol, const Segmento& s){
 Base aux(pol);
 aux.remove(s.get_firstPoint());
 aux.remove(s.get_secondPoint());
-Poligono aus(aux);
-return aus;
+Poligono* aus =new Poligono(aux);
+return *aus;
 }
 
 Poligono operator*(const Poligono& pol1, const Poligono& pol2){
@@ -153,8 +157,8 @@ Poligono operator*(const Poligono& pol1, const Poligono& pol2){
         for(unsigned int i=0; i<pol1.l.size();++i)
             aux.add((*pol2.l[i]) * (*pol1.l[i]));
     }
-    Poligono aus(aux);
-    return aus;
+    Poligono* aus =new Poligono(aux);
+    return *aus;
 }
 
 Poligono operator *(const Poligono& pol, const Punto& p){
@@ -164,8 +168,8 @@ Base aux;
 for(unsigned int i=0; i<pol.l.size();++i){
     aux.add(*pol.l[i] * p);
 }
-Poligono aus(aux);
-return aus;
+Poligono* aus =new Poligono(aux);
+return *aus;
 }
 
 
@@ -176,8 +180,8 @@ if(dist==0) return pol;
 for(unsigned int i=0; i<pol.l.size();++i){
         aux.add(*pol.l[i] * dist);
 }
-Poligono aus(aux);
-return aus;
+Poligono*aus = new Poligono(aux);
+return *aus;
 }
 
 Poligono operator/(const Poligono& pol1, const Poligono& pol2){
@@ -189,8 +193,8 @@ Poligono operator/(const Poligono& pol1, const Poligono& pol2){
         for(unsigned int i=0; i<pol1.l.size();++i)
             aux.add(*pol2.l[i] / *pol1.l[i]);
     }
-    Poligono aus(aux);
-    return aus;
+    Poligono* aus =new Poligono(aux);
+    return *aus;
 }
 
 Poligono operator /(const Poligono& pol, const Punto& p){
@@ -198,8 +202,8 @@ Base aux;
 for(unsigned int i=0; i<pol.l.size();++i){
     aux.add(*pol.l[i] / p);
     }
-Poligono aus(aux);
-return aus;
+Poligono* aus =new Poligono(aux);
+return *aus;
 }
 
 Poligono operator /(const Poligono& pol, const Segmento& s){
@@ -210,8 +214,8 @@ for(unsigned int i=0; i<pol.l.size();++i){
     Punto x(pol.l[i]->get_x()/dist,pol.l[i]->get_y()/dist);
     aux.add(x);
 }
-Poligono aus(aux);
-return aus;
+Poligono* aus =new Poligono(aux);
+return *aus;
 }
 
 
